@@ -1,33 +1,45 @@
-#claw ideas/plan
-#Things that AXE needs to be able to do:
-  #be able to encrypt/decrypt
-  #pull metadata from images
-  #find hidden encryptioon in images
-  #hold all the cyberpatriots scripts
-  #be able to "easy snap" script's like lego bricks
-  #find files (think foresnics queston "find hiddden mp3 file")
-  #add pytorch to guess encyptions/also allows us to better crack encryption
+import pytorch
+import time
+import math
+import matplotlib
+import scapy
+import PyCrypto
+import BeautifulSoup
+import Paramiko
+import nmap
+import scikitlearn
+import socket
+import ploty
+import pandas
+import Pygal
+import numpy
+import custometikinter
+import pillow
+import subprocess
+import threading
+import socket
+#holy carp this is a lot of libraries lets hope threading helps at all
 
-#GUI ideas
-  #CustomTKinter GUI
-  #Pillow (PIL) for adding images to GUI
-  #be able to download output
-  #
-  #
-  #
-  #
-  #
+"""
+welcome to CLAW!
+-----------------------
+The following code is brought to you bby the cybears of tvhs
 
-#! W I P !
-#a menue yo select common searchable items on linux and return a value (like id -u but with a menue and take prompt)
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+TO DO:
+Plan application use cases
+Sketch out GUI ideas
+Create GUI
+Decryption
+Encryption
+Image Proccesing
+Making it not run like a fish out of water
+find files
+execute bash scripts
+script builder
+!WIP! custom encryption
+
+[etc...add other stuff to do :3]
+
+
+
+"""
