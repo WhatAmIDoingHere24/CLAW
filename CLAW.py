@@ -51,6 +51,8 @@ claw = customtkinter.CTk()
 claw.geometry("500x500")
 
 #interactive action's
+def buttonPress():
+    print("button pressed")
     #theres nothing in here yet
 
 #settign up elements
@@ -64,6 +66,7 @@ title_bar = customtkinter.CTkLabel(master=claw,
 
 
 tool1 = customtkinter.CTkButton(master=claw,
+                                command=buttonPress,
                                 text="button1",
                                 width=40,
                                 height=20,
@@ -95,4 +98,22 @@ tool3.place(relx=0.5,rely=0.6,anchor=tkinter.CENTER)
 
 #idk what to call this just dont touch it
 claw.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
