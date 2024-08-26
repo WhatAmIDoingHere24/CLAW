@@ -43,17 +43,46 @@ script builder
 
 """
 #setting up start window
-customtkinter.set_appearance_mode("Dark")
+customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
 
 #intiilizing the window
 claw = customtkinter.CTk()
 claw.geometry("500x500")
 
+#tool1 window ()
+def tool1_window():
+    tool1Window = customtkinter.CTk()
+    tool1Window.geometry('500x500')
+
+    def buttonTouched():
+        print('button been touched')
+
+    button = customtkinter.CTkButton(master=tool1Window,
+                                     command=buttonTouched,
+                                     text='this is a second button',
+                                     width=40,
+                                     height=80,
+                                     text_color='pink',
+                                     fg_color='green'
+                                     )
+    
+    button.place(relx=0.5,rely=0.5,anchor=tkinter.CENTER)
+    
+    tool1Window.mainloop()
+
+
+#main window
 #interactive action's
-def buttonPress():
-    print("button pressed")
-    #theres nothing in here yet
+def tool1_Press():
+    tool1_window()
+
+def tool2_Press():
+    print("button2pressed")
+
+def tool3_Press():
+    print("button3pressed")
+
 
 #settign up elements
 title_bar = customtkinter.CTkLabel(master=claw,
@@ -66,32 +95,34 @@ title_bar = customtkinter.CTkLabel(master=claw,
 
 
 tool1 = customtkinter.CTkButton(master=claw,
-                                command=buttonPress,
+                                command=tool1_Press,
                                 text="button1",
-                                width=40,
-                                height=20,
+                                width=100,
+                                height=80,
                                 fg_color="blue",
                                 )
 
 
 tool2 = customtkinter.CTkButton(master=claw,
+                                command=tool2_Press,
                                 text="button2",
-                                width=40,
-                                height=20,
+                                width=100,
+                                height=80,
                                 fg_color="blue")
 
 
 tool3 = customtkinter.CTkButton(master=claw,
+                                command=tool3_Press,
                                 text="button3",
-                                width=40,
-                                height=20,
+                                width=100,
+                                height=80,
                                 fg_color="blue")
 
 #intilizing elemnts
 title_bar.place(relx=0.5,rely=0.2,anchor=tkinter.CENTER)
 tool1.place(relx=0.5,rely=0.4,anchor=tkinter.CENTER)
-tool2.place(relx=0.5,rely=0.5,anchor=tkinter.CENTER)
-tool3.place(relx=0.5,rely=0.6,anchor=tkinter.CENTER)
+tool2.place(relx=0.5,rely=0.6,anchor=tkinter.CENTER)
+tool3.place(relx=0.5,rely=0.8,anchor=tkinter.CENTER)
 
 
 
