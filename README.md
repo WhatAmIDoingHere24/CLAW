@@ -1,7 +1,7 @@
 # CLAW
 Cyber Logic Analyzer Workspace
 
-This is a Workspcae/Toolkit made by and for Cyberpateriots of TVHS. Due to regulaton in the Cyberpatriot competition rules we had to resort to makeing are own scripts and tools; And so CLAW was created to help centralise and create said tools. Everything within this project was created by Local cyberpatriots at TVHS and with no assitance form our coach. This is entirly a student run project
+This is a Workspace/Toolkit made by and for Cyberpateriots of TVHS. Due to regulaton in the Cyberpatriot competition rules we had to resort to makeing are own scripts and tools; And so CLAW was created to help centralise and create said tools. Everything within this project was created by Local cyberpatriots at TVHS and with no assitance form our coach. This is entirly a student run project
 
 Devolpers:
 Mr.Cyber (Jett)
