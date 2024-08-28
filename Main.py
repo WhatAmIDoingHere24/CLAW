@@ -6,9 +6,7 @@ from functools import partial
 welcome to CLAW!
 -----------------------
 The following code is brought to you by the cybears of tvhs
-
 """
-
 
 #setting up start window
 customtkinter.set_appearance_mode("System")
@@ -20,11 +18,7 @@ claw.geometry("500x500")
 claw.title("CLAW")
 
 
-
-
-
-
-#creates / places label (1 for now)
+#creates / places title cards
 encryptionTitle = customtkinter.CTkLabel(master=claw,
                                     text = "Encryption / Decryption",
                                     width=150,
