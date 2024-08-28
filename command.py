@@ -1,7 +1,7 @@
 from crypto import encodeBase64,decodeBase64,encodeBase32,decodeBase32
 
 #List of tools to be assinged to buttons
-toolList = ["encodeBase64","decodeBase64","encodeBase32","decodeBase32","Shift Cipher","Script1","Script2"]
+toolList = ["encodeBase64","decodeBase64","encodeBase32","decodeBase32","Shift Cipher","Script1","Script2","Script 3"]
 
 def command(commandName):
     match commandName:
