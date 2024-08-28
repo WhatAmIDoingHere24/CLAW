@@ -1,13 +1,18 @@
 TO DO:
-Plan application use cases
-Sketch out GUI ideas
-Create GUI
-Decryption
-Encryption
+Decryption/Encryption:
+  Base64
+  Base32
+  BASH
 Image Proccesing
-Making it not run like a fish out of water
-find files
-execute bash scripts
+Making it not run like a fish out of water (Run Optimally)
+Automated Scripts 
+Windows
+  Remove Hacking Tools
+  Remove Users based from list
+  Change Passwords / Password Rules
+  Change Group Policies
+  Change Firewall Outbound/Inbound rules
+Linux
 script builder
 !WIP! custom encryption
 
