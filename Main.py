@@ -25,7 +25,7 @@ claw.title("CLAW")
 
 
 #creates / places label (1 for now)
-title_bar = customtkinter.CTkLabel(master=claw,
+encryptionTitle = customtkinter.CTkLabel(master=claw,
                                     text = "Encryption / Decryption",
                                     width=150,
                                     height=80,
@@ -33,7 +33,17 @@ title_bar = customtkinter.CTkLabel(master=claw,
                                     fg_color="gray"
                                     )
 
-title_bar.place(x=10,y=10,)
+encryptionTitle.place(x=10,y=10,)
+
+winScriptTitle = customtkinter.CTkLabel(master=claw,
+                                    text = "Windows Scripts",
+                                    width=150,
+                                    height=80,
+                                    text_color="black",
+                                    fg_color="gray"
+                                    )
+
+winScriptTitle.place(x=10,y=320,)
 
 
 xValue = 1
@@ -55,8 +65,12 @@ for i in range(len(toolList)):
     if i % 4 == 0:
         yValue+=100
         xValue=0
-    tool.place(x=(xValue*xSep),y=yValue)
+    tool.place(x=((xValue)*xSep)+5,y=yValue)
     xValue+=1
+    if toolList[i] == "Shift Cipher":
+        yValue += 200
+        xValue=0
+    
 
 
 #runs the window until it is closed by user
