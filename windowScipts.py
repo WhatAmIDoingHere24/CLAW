@@ -1,5 +1,4 @@
 import subprocess
-import sys
 import os
 
 present_working_directory = os.getcwd()
@@ -22,9 +21,7 @@ def script(commandName):
 
 def deleteUsers():
     path = os.path.realpath("deleteUsers.ps1")
-    cmd = ["PowerShell", "-ExecutionPolicy", "Unrestricted", "-File", path]  
-    ec = subprocess.call(cmd)
-    """p = subprocess.Popen(["powershell.exe", 
-              path], 
-              stdout=sys.stdout)
-    p.communicate()"""
+    print(path)
+    print(os.getlogin())
+    runDeleteUserScript = ["PowerShell", "-ExecutionPolicy", "Unrestricted", "-File", path, "-Users", "Testing", "Testing2", "Testing3"]  
+    subprocess.call(runDeleteUserScript)
