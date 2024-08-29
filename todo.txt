@@ -15,8 +15,6 @@ Windows
 Linux
 script builder
 !WIP! custom encryption
-implement red team tools and abillitys fir red team ctf's
-pcap tool to anlyze packets and give most important data
 
 Libraries:
 #import pillow

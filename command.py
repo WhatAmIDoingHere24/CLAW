@@ -1,7 +1,8 @@
-from crypto import encodeBase64,decodeBase64,encodeBase32,decodeBase32
+from crypto import encodeBase64,decodeBase64
+from windowScriptManager import scriptManager
 
 #List of tools to be assinged to buttons
-toolList = ["encodeBase64","decodeBase64","encodeBase32","decodeBase32","Shift Cipher","Script1","Script2","Script 3"]
+toolList = ["encodeBase64","decodeBase64","bash","md5", "windowScripts"]
 
 def command(commandName):
     match commandName:
@@ -10,8 +11,12 @@ def command(commandName):
             encodeBase64()
         case "decodeBase64":
             decodeBase64()
-        case "encodeBase32":
-            encodeBase32()
-        case "decodeBase32":
-            decodeBase32()
+        case "bash":
+            print("this is bash")
+        case "md5":
+            print("this is md5")
+        case "windowScripts":
+            print("this is windows script manager")
+            scriptManager()
+            
 
