@@ -1,14 +1,31 @@
-$splat = @{
-    [string]$Users =@()
+#$splat = @{
+#    [string]$Users =@()
+#}
+Param   (
+    $Users
+)
+
+#$Users = @splat
+$message = "Done"
+$userList = @()
+for($counter= 0; $counter -lt $Users.Length; $counter++)
+{
+
+    If($Users[$counter] -eq ".")
+    {
+        $counter++
+        $userList += $nextUser
+        $nextUser = ''
+    }
+    $nextUser += $Users[$counter]
 }
 
-$message = "Done"
-$length = $Users.Length
-Write-Host "$length"
-for ($counter= 0; $counter -lt $Users.Length; $counter++)
+
+for ($counter= 0; $counter -lt $userList.Length; $counter++)
 {
-    #Remove-LocalUser -Name "$users[$counter]"
-    Write-Host "$Users"
+    $rmvUser = $userList[$counter]
+    Remove-LocalUser -Name $rmvUser
+    Write-Host $userList[$counter]
 }
     
 Write-Host "$message"

@@ -23,5 +23,5 @@ def deleteUsers():
     path = os.path.realpath("deleteUsers.ps1")
     print(path)
     print(os.getlogin())
-    runDeleteUserScript = ["PowerShell", "-ExecutionPolicy", "Unrestricted", "-File", path, "-Users", "Testing", "Testing2", "Testing3"]  
+    runDeleteUserScript = ["PowerShell", "-ExecutionPolicy", "Unrestricted", "-File", path, "-Users", "Testing." "Testing2." "Testing3."]  
     subprocess.call(runDeleteUserScript)
