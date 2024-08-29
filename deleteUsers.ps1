@@ -1,2 +1,2 @@
-$message = "Hey"
+$message = "Test"
 Write-Host "$message"
