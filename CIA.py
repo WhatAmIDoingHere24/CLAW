@@ -1,5 +1,5 @@
 from functools import partial
-
+from crypto import  encodeBase64, decodeBase64, encodeBase32, decodeBase32
 
 def cia():
     print("hello world")
