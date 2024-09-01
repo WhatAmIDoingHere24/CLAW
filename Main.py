@@ -74,10 +74,14 @@ for i in range(len(toolList)):
                 button_name = button_name[:j] + "_" + button_name[j+1:]
 
     button_text = toolList[i]
+    button_text_list = []
     for n in range(len(button_text)):
-        if button_text[n] == " ":
-            button_text = button_text[:n] + "\n" + button_text[n+1:]
-    print(button_name)
+        if button_text[n].isupper() and ((button_text[n+1] != "." and button_text[n-1] != ".") and (button_text[n+1] != ")" and button_text[n-1] != "(")):
+            button_text_list.append("\n")
+        button_text_list.append(button_text[n])
+    button_text = "".join(button_text_list)
+
+    
     toolButtons.append(exec("%s = None" % (button_name)))
     toolButtons[-1] = customtkinter.CTkButton(master= colums[counter], text=button_text, height= 80, 
                                               width= ((claw_size[0] / 3) - 30),fg_color="blue", command=newCommand)
