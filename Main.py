@@ -24,21 +24,32 @@ claw.title("CLAW")
 
 
 #Creates label (1 for now)
-title_bar = customtkinter.CTkLabel(master=claw, text = "Encryption / Decryption", width=150, height=80, text_color="black", fg_color="grey")
+title_bar = customtkinter.CTkLabel(master=claw, text = "Encryption / Decryption", width=150, height=80, 
+                                   text_color="black", fg_color="grey")
+
 #Ceates the 4 colums that the different buttons are put into
-colum1 = customtkinter.CTkFrame(claw, width= (claw_size[0] / 4), fg_color= "transparent", border_width= 0, corner_radius= 0)
-colum2 = customtkinter.CTkFrame(claw, width= (claw_size[0] / 4), fg_color= "transparent", border_width= 0, corner_radius= 0)
-colum3 = customtkinter.CTkFrame(claw, width= (claw_size[0] / 4), fg_color= "transparent", border_width= 0, corner_radius= 0)
-colum4 = customtkinter.CTkFrame(claw, width= (claw_size[0] / 4), fg_color= "transparent", border_width= 0, corner_radius= 0)
+columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0)
+colum1 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+                                border_width= 0, corner_radius= 0)
+
+colum2 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+                                border_width= 0, corner_radius= 0)
+
+colum3 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+                                border_width= 0, corner_radius= 0)
+
+colum4 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+                                border_width= 0, corner_radius= 0)
 
 colums = [colum1, colum2, colum3, colum4]
 
 #Adds the title_bar and all 4 colum widgets onto the screen
 title_bar.pack(anchor= "nw", padx= 5, pady = 5)
+columFrame.pack(anchor= "nw", fill = customtkinter.BOTH, expand= True)
 for colum in colums:
     #Setting pack_propagate to False makes the frames not expand to hold the widgets in it
-    colum.pack_propagate(False)
-    colum.pack(anchor= "nw", fill= customtkinter.Y, side = customtkinter.LEFT)
+    #colum.pack_propagate(False)
+    colum.pack(anchor= "nw", fill= customtkinter.Y, side = customtkinter.LEFT, expand= True)
 
 counter = 0 #Counter used to start new row of buttons once all four colums get one button
 toolButtons = [] #Holds all the tool Buttons from toolList 
@@ -49,14 +60,15 @@ Somthing that you can change with the buttons that you aree adding that
 would make them easier to call back to would be assining them different names
 so you can actually call back to them later (there is no real need for this that often but just better habbit)
 
-(I just added it because I was bored)
+(I just added it)
 """
 for i in range(len(toolList)):
     #Creates a function with the argument included (you cant pass an argument into a button command without this)
     newCommand = partial(command,toolList[i])
     #Creates button with new name and command
     toolButtons.append(exec("%s = None" % (toolList[i])))
-    toolButtons[-1] = customtkinter.CTkButton(master= colums[counter], text=toolList[i], height= 80, fg_color="blue", command=newCommand)
+    toolButtons[-1] = customtkinter.CTkButton(master= colums[counter], text=toolList[i], height= 80, 
+                                              width= ((claw_size[0] / 4) - 30),fg_color="blue", command=newCommand)
 
     #Math to reset colum
     if (counter % 3 == 0) and (counter > 0):
