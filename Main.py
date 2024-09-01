@@ -30,26 +30,19 @@ title_bar = customtkinter.CTkLabel(master=claw, text = "Encryption / Decryption"
 #Ceates the 4 colums that the different buttons are put into
 columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0)
 
-colum1 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
+colums = []
+for i in range(3):
+    colum_name = "colum" + str(i)
+    colums.append(exec("%s = None" % (colum_name)))
+    colums[i] = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
                                 border_width= 0, corner_radius= 0)
 
-colum2 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
-                                border_width= 0, corner_radius= 0)
-
-colum3 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
-                                border_width= 0, corner_radius= 0)
-
-#colum4 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
-#                                border_width= 0, corner_radius= 0)
-
-colums = [colum1, colum2, colum3]
 
 #Adds the title_bar and all 4 colum widgets onto the screen
 title_bar.pack(anchor= "nw", padx= 5, pady = 5)
 columFrame.pack(anchor= "nw", fill = customtkinter.BOTH, expand= True)
 for colum in colums:
     #Setting pack_propagate to False makes the frames not expand to hold the widgets in it
-    #colum.pack_propagate(False)
     colum.pack(anchor= "nw", fill= customtkinter.Y, side = customtkinter.LEFT, expand= True)
 
 counter = 0 #Counter used to start new row of buttons once all four colums get one button
@@ -81,7 +74,6 @@ for i in range(len(toolList)):
             button_text_list.append("\n")
         button_text_list.append(button_text[n])
     button_text = "".join(button_text_list)
-    print(button_name)
 
     toolButtons.append(exec("%s = None" % (button_name)))
     toolButtons[-1] = customtkinter.CTkButton(master= colums[counter], text=button_text, height= 80, 
@@ -92,7 +84,8 @@ for i in range(len(toolList)):
         counter = 0
     else:
         counter = counter + 1
-    toolButtons[i]._text_label.configure(wraplength=((claw_size[0] / 3)))
+
+    #toolButtons[i]._text_label.configure(wraplength=((claw_size[0] / 3)))
     toolButtons[i].pack(padx = 10, pady = 15, side= customtkinter.TOP)
 
 
