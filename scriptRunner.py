@@ -55,11 +55,12 @@ def addUsers():
     aus.title("addUsers")
     aus.geometry('300x300')
     aus.resizable(False, False)
+
     ausEntry = customtkinter.CTkEntry(aus, placeholder_text= "Enter Users", placeholder_text_color= "grey", width=150, 
                                    height=50, text_color="black", fg_color= "light grey", border_width= 0, 
                                    corner_radius= 5)
-    ausUserLabel = customtkinter.CTkTextbox(aus, text_color="black", border_width= 1, corner_radius= 5, border_color= "light grey", justify= "CENTER")
-    ausSubmitButton = customtkinter.CTkButton(aus, text= "Run Script with\ncurrent users", command= test())
+    ausUserLabel = customtkinter.CTkTextbox(aus, text_color="black", border_width= 1, corner_radius= 5, border_color= "light grey")
+    #ausSubmitButton = customtkinter.CTkButton(aus, text= "Run Script with\ncurrent users", command= test())
     
     def addU(users):
         newPath = os.path.realpath("winScripts")
@@ -85,6 +86,6 @@ def addUsers():
 
     ausUserLabel.pack(anchor ="nw", padx= 10, pady = 10, fill = customtkinter.BOTH, expand= True)
     ausEntry.pack(anchor= "sw", fill= customtkinter.BOTH, expand= True, side= customtkinter.LEFT)
-    ausSubmitButton.pack(anchor= "sw", fill= customtkinter.BOTH, side= customtkinter.LEFT)
+    #ausSubmitButton.pack(anchor= "sw", fill= customtkinter.BOTH, side= customtkinter.LEFT)
     aus.bind('<Return>', handleUserEntry)
     aus.mainloop()

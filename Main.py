@@ -29,6 +29,7 @@ title_bar = customtkinter.CTkLabel(master=claw, text = "Encryption / Decryption"
 
 #Ceates the 4 colums that the different buttons are put into
 columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0)
+
 colum1 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
                                 border_width= 0, corner_radius= 0)
 
@@ -76,12 +77,12 @@ for i in range(len(toolList)):
     button_text = toolList[i]
     button_text_list = []
     for n in range(len(button_text)):
-        if button_text[n].isupper() and ((button_text[n+1] != "." and button_text[n-1] != ".") and (button_text[n+1] != ")" and button_text[n-1] != "(")):
+        if button_text[n].isupper() and (n != 0 and (button_text[n+1] != "." and button_text[n-1] != ".") and (button_text[n+1] != ")" and button_text[n-1] != "(")):
             button_text_list.append("\n")
         button_text_list.append(button_text[n])
     button_text = "".join(button_text_list)
+    print(button_name)
 
-    
     toolButtons.append(exec("%s = None" % (button_name)))
     toolButtons[-1] = customtkinter.CTkButton(master= colums[counter], text=button_text, height= 80, 
                                               width= ((claw_size[0] / 3) - 30),fg_color="blue", command=newCommand)
