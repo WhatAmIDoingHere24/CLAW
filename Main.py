@@ -50,8 +50,8 @@ toolButtons = [] #Holds all the tool Buttons from toolList
 
 #Iterates through toolList to create buttons with pairing function from command file
 """
-Somthing that you can change with the buttons that you aree adding that 
-would make them easier to call back to would be assining them different names
+Somthing that you can change with the buttons that you are adding that 
+would make them easier to call back to would be asining them different names
 so you can actually call back to them later (there is no real need for this that often but just better habbit)
 
 (I just added it)
