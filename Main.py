@@ -29,19 +29,19 @@ title_bar = customtkinter.CTkLabel(master=claw, text = "Encryption / Decryption"
 
 #Ceates the 4 colums that the different buttons are put into
 columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0)
-colum1 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+colum1 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
                                 border_width= 0, corner_radius= 0)
 
-colum2 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+colum2 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
                                 border_width= 0, corner_radius= 0)
 
-colum3 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+colum3 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
                                 border_width= 0, corner_radius= 0)
 
-colum4 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
-                                border_width= 0, corner_radius= 0)
+#colum4 = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 4) -10), fg_color= "transparent", 
+#                                border_width= 0, corner_radius= 0)
 
-colums = [colum1, colum2, colum3, colum4]
+colums = [colum1, colum2, colum3]
 
 #Adds the title_bar and all 4 colum widgets onto the screen
 title_bar.pack(anchor= "nw", padx= 5, pady = 5)
@@ -62,20 +62,33 @@ so you can actually call back to them later (there is no real need for this that
 
 (I just added it)
 """
+invalidChar = [" ", ".", "(", ")", "/"]
 for i in range(len(toolList)):
     #Creates a function with the argument included (you cant pass an argument into a button command without this)
     newCommand = partial(command,toolList[i])
     #Creates button with new name and command
-    toolButtons.append(exec("%s = None" % (toolList[i])))
-    toolButtons[-1] = customtkinter.CTkButton(master= colums[counter], text=toolList[i], height= 80, 
-                                              width= ((claw_size[0] / 4) - 30),fg_color="blue", command=newCommand)
+    button_name = toolList[i]
+    for j in range(len(button_name)):
+        for charcter in invalidChar:
+            if button_name[j] == charcter:
+                button_name = button_name[:j] + "_" + button_name[j+1:]
+
+    button_text = toolList[i]
+    for n in range(len(button_text)):
+        if button_text[n] == " ":
+            button_text = button_text[:n] + "\n" + button_text[n+1:]
+    print(button_name)
+    toolButtons.append(exec("%s = None" % (button_name)))
+    toolButtons[-1] = customtkinter.CTkButton(master= colums[counter], text=button_text, height= 80, 
+                                              width= ((claw_size[0] / 3) - 30),fg_color="blue", command=newCommand)
 
     #Math to reset colum
-    if (counter % 3 == 0) and (counter > 0):
+    if (counter % 2 == 0) and (counter > 0):
         counter = 0
     else:
         counter = counter + 1
-    toolButtons[i].pack(padx = 10, pady = 25, side= customtkinter.TOP)
+    toolButtons[i]._text_label.configure(wraplength=((claw_size[0] / 3)))
+    toolButtons[i].pack(padx = 10, pady = 15, side= customtkinter.TOP)
 
 
 #runs the window until it is closed by user
