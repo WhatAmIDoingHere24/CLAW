@@ -4,6 +4,7 @@ import customtkinter
 
 present_working_directory = os.getcwd()
 
+# maybe add OS check so peolple dont run windows scripts on ubnutu and vice versa
 
 def deleteUsers():
     customtkinter.set_appearance_mode("System")

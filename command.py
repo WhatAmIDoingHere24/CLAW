@@ -27,8 +27,8 @@ def command(commandName):
             decodeBase32()
         case "C.I.A (Cipher Index Analysis)":
             cia()
-        case "ciper recognition":
-            print("this is supposed to be pytorch")#pyTorch()
+        case "Cipher Recognition":
+            torchTest()
         case "Code Red":
             CDRD()
         
