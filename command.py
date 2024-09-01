@@ -2,7 +2,7 @@ from crypto import encodeBase64,decodeBase64
 from windowScriptManager import scriptManager
 
 #List of tools to be assinged to buttons
-toolList = ["encode Base64","decode Base64", "window Scripts", "C.I.A (Cipher Index Analysis)"]
+toolList = ["encodeBase64","decodeBase64", "windowScripts", "C.I.A (Cipher Index Analysis)"]
 
 def command(commandName):
     match commandName:
