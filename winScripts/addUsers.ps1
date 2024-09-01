@@ -1,13 +1,9 @@
-#$splat = @{
-#    [string]$Users =@()
-#}
 Param   (
     $Users
 )
 
-#$Users = @splat
-$message = "Done"
 $userList = @()
+$password = ConvertTo-SecureString "ARea11yStr0ngpAssW0rd!?" -AsPlainText -Force
 for($counter= 0; $counter -lt $Users.Length; $counter++)
 {
 
@@ -20,12 +16,9 @@ for($counter= 0; $counter -lt $Users.Length; $counter++)
     $nextUser += $Users[$counter]
 }
 
-
 for ($counter= 0; $counter -lt $userList.Length; $counter++)
 {
-    $rmvUser = $userList[$counter]
-    Remove-LocalUser -Name $rmvUser
-    Write-Host $userList[$counter]
+    $addUser = $userList[$counter]
+    New-LocalUser -Name $addUser -Password $password
+    Add-LocalGroupMember -Group "Users" -Member $addUser
 }
-    
-Write-Host "$message"

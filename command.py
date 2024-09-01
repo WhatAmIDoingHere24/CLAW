@@ -18,5 +18,7 @@ def command(commandName):
         case "windowScripts":
             print("this is windows script manager")
             scriptManager()
+        
+    
             
 
