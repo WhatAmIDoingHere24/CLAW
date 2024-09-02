@@ -6,12 +6,13 @@ from CIA import cia
 from CodeRed import CDRD
 
 #List of tools to be assinged to buttons
-titleList = ["Encryption / Decrption", "Window Scripts", "Linux Scripts", "Test"]
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "C.I.A (Cipher Index Analysis)", "Cipher Recognition"," Code Red", "Shift Cipher"]
+titleList = ["Encryption / Decrption", "Window Scripts", "Linux Scripts", "CTF Tools"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Cipher Index Analysis", "Cipher Recognition"," Code Red", "Shift Cipher"]
 winScriptToolList = ["windowScripts"]
 linScriptToolList = ["linuxScripts"]
+ctfToolList = ["CodeRed","WAIT","MetaDataAnalisys"]
 
-toolList = [cryptoToolList, winScriptToolList, linScriptToolList]
+toolList = [cryptoToolList, winScriptToolList, linScriptToolList,ctfToolList]
 
 def packButtons(buttonList, index, colums):
     counter = 0
@@ -32,6 +33,8 @@ def command(commandName, toolList, index, colums):
             packButtons(toolList, index, colums)
         case "Linux Scripts":
             packButtons(toolList, index, colums)
+        case "CTF Tools":
+            packButtons(toolList, index, colums)
         case "encodeBase64":
             print("this is base64")
             encodeBase64()
@@ -44,12 +47,12 @@ def command(commandName, toolList, index, colums):
             encodeBase32()
         case "decodeBase32":
             decodeBase32()
-        case "C.I.A (Cipher Index Analysis)":
+        case "Cipher Index Analysis":
             cia()
         case "Cipher Recognition":
             #torchTest()
             pass
-        case "Code Red":
+        case "CodeRed":
             CDRD()
         
     
