@@ -16,7 +16,7 @@ customtkinter.set_default_color_theme("blue")
 
 #Intiilizing the window
 claw = customtkinter.CTk()
-claw_size = [1000, 500]
+claw_size = [600, 500]
 claw.geometry((str(claw_size[0]) + "x" + str(claw_size[1])))
 claw.resizable(False, False)
 claw.title("CLAW")
