@@ -7,7 +7,7 @@ from CodeRed import CDRD
 
 #List of tools to be assinged to buttons
 titleList = ["Encryption / Decrption", "Window Scripts", "Linux Scripts", "CTF Tools"]
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Cipher Index Analysis", "Cipher Recognition"," Code Red", "Shift Cipher"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Cipher Index Analysis", "Cipher Recognition","Shift Cipher"]
 winScriptToolList = ["windowScripts"]
 linScriptToolList = ["linuxScripts"]
 ctfToolList = ["codeRed","osint","metaDataGrabber","www"]
