@@ -2,34 +2,31 @@ from functools import partial
 from crypto import  encodeBase64, decodeBase64, encodeBase32, decodeBase32
 
 def cia():
-    #Sets default apperence to your systems default, and sets color theme to blue
-    customtkinter.set_appearance_mode("System")
-    customtkinter.set_default_color_theme("blue")
+  cia = customtkinter.CTk()
+  cia.title("Cipher Index Analisys")
+  cia.geometry('500x500')
 
-    #Initilizes the application screen 
-    toolWindow = customtkinter.CTk()
-    toolWindow.title("encodeBase64")
-    toolWindow.geometry('300x300')
-    toolWindow.resizable(False, False)
+  TextInput = customtkinter.CTkEntry(cia, placeholder_text='Enter Encrypted Text', width=140, height=28)
+  entry.place(x=0, y=0)
 
+  def enterEvent():
+    print('button pressed')
+  
+  Enterbutton = customtkinter.CTkButton(cia, text='See Stats',command=enterEvent ,width=140, height=28)
+  Enterbutton.place(x=10, y=10)
+  
+  ShannonOut = customtkinter.CTkLabel(cia, text=shannonIndex, width=40, height=28, fg_color=' ace(x=10, y=6)
 
-    #Initilizes text box
-    entry = customtkinter.CTkEntry(toolWindow, placeholder_text= "Enter text", placeholder_text_color= "grey", width=150, 
-                                   height=50, text_color="black", fg_color= "light grey", border_width= 0, corner_radius= 5)
-    #Initilizes result label
-    resultLabel = customtkinter.CTkTextbox(toolWindow, width=150, height=50, text_color="black")
-    resultLabel.configure(state= "disabled")
+  gdeOut = customtkinter.CTkLabel(cia, text=gde, width=40, height=28, fg_color=' ace(x=10, y=10)
 
-    #Adds all widgets to screen
-    resultLabel.pack(anchor= "nw", padx = 10, pady = 10, fill= customtkinter.BOTH, expand= True)
-    entry.pack(anchor= "nw", padx = 10, pady = 10, fill= customtkinter.X, side= customtkinter.BOTTOM)
+  renyiOut = customtkinter.CTkLabel(cia, text=renyi, width=40, height=28, fg_color=' ace(x=10, y=14)
 
+  ngramOut = customtkinter.CTkLabel(cia, text=ngram, width=40, height=28, fg_color=' ace(x=10, y=18)
 
-    #Handels enter button being pressed to submit entry text to conversion
-    #toolWindow.bind('<Return>', lambda event: convert2base64(event, entry.get()))
-    toolWindow.bind('<Return>', handleEntryEnter)
-    entry.focus_force()
-    toolWindow.mainloop()
+  iocOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  
+  probOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+
 
 """
 Cipher index (a summation of a bunch of indicators for pattern recong. / repition / identiiers for crypto)
@@ -40,6 +37,9 @@ Cipher index (a summation of a bunch of indicators for pattern recong. / repitio
 """
 
 #shannon index
+
+shannonIndex = 0
+
 """
 PS = product summation
 
@@ -52,6 +52,9 @@ int R = 0 #the length of the Dataset
 """
 
 #generelized diversity equation
+
+gde = 0
+
 """
 SN = sigma notation
 
@@ -68,6 +71,9 @@ int i = 0 #point in data set (what value is the loop at from 0)
 
 #renyi entropy
 #only if q != 1
+
+renyi = 0
+
 """
 H^q = ln(1/(q-1(sqrt((SN;R;i=1)P_i * P_i^q-1))))
 
@@ -83,6 +89,9 @@ float ln = #any natrual log
 
 #n-gram
 #theres no deafeanet equation so i made on up
+
+ngram = 0
+
 """
 float H = 0 #output
 int R = 0 #dataset length
@@ -99,6 +108,9 @@ H = ((SN;R;i=n))
 """
 
 #index of coinicidence
+
+ioc = 0
+
 """
 this takes 2 or more encryptions of the same type and compares them for similiarties 
 
@@ -108,5 +120,14 @@ float H = 0 #output
 int N = 0 #dataset length
 int c = 0 #amount of char being used (english is 26)
 int i = 0 #a single point in the dataset
+
+"""
+
+probOut = 0
+"""
+This will compare two diffrent encryptions and give you an estimate to how similar they are
+, just fior seeing how close two encryptions are together
+
+
 
 """
