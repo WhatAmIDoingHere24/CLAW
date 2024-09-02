@@ -38,6 +38,7 @@ def cia():
   
   if(ciperNButton.click()):
     #create another cipher text field and run test agian
+    print("idk, brayden fix the button system so i can debug cia")
     
 
 
