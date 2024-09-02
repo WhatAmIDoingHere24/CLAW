@@ -1,6 +1,8 @@
 from functools import partial
 from crypto import  encodeBase64, decodeBase64, encodeBase32, decodeBase32
 import customtkinter
+import customtkinter
+
 
 def cia():
   cia = customtkinter.CTk()
@@ -40,6 +42,7 @@ def cia():
   if(cipherNButton.click()):
     print('cipher button')
     #create another cipher text field and run test agian
+    print("idk, brayden fix the button system so i can debug cia")
     
 
 

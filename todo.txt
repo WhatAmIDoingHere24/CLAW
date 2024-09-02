@@ -14,7 +14,6 @@ Windows
   Change Firewall Outbound/Inbound rules
 Linux
 script builder
-!WIP! custom encryption
 
 Libraries:
 #import pillow
