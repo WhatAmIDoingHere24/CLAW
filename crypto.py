@@ -110,6 +110,7 @@ def decodeBase64():
     toolWindow.bind('<Return>', handleEntryEnter)
     toolWindow.mainloop()
 
+
 def encodeBase32():
     customtkinter.set_appearance_mode("System")
     customtkinter.set_default_color_theme("blue")
@@ -154,6 +155,7 @@ def encodeBase32():
                                     )
     enterButton.place(relx=0.7,rely=0.5,anchor='center')
     toolWindow.mainloop()
+
 
 def decodeBase32():
 
