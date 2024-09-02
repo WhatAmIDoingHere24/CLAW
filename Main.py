@@ -102,7 +102,7 @@ for i in range(len(titleList)):
 
     titleCards.append(exec("%s = None" % (titleName)))
     titleCards[i] = customtkinter.CTkRadioButton(title_bar_frame, text= titleList[i], height= 80, variable= radioVar, 
-                                            fg_color="blue", value= i,command=newCommand,corner_radius=1)
+                                            fg_color="blue", value= i, corner_radius=1, command=newCommand)
     titleCards[i].pack(padx = 20, pady = 5, side= customtkinter.LEFT)
     pass
 #runs the window until it is closed by user
