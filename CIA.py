@@ -1,5 +1,6 @@
 from functools import partial
 from crypto import  encodeBase64, decodeBase64, encodeBase32, decodeBase32
+import customtkinter
 
 def cia():
   cia = customtkinter.CTk()
@@ -7,7 +8,7 @@ def cia():
   cia.geometry('500x500')
 
   TextInput = customtkinter.CTkEntry(cia, placeholder_text='Enter Encrypted Text', width=140, height=28)
-  entry.place(x=0, y=0)
+  cia.entry.place(x=0, y=0)
 
   def enterEvent():
     print('button pressed')
@@ -22,21 +23,22 @@ def cia():
   cipherNButton = customtkinter.CTkButton(cia, text='enter another cipher',command=enterNcipher ,width=140, height=28)
   cipherNButton.place(x=10, y=10)
   
-  ShannonOut = customtkinter.CTkLabel(cia, text=shannonIndex, width=40, height=28, fg_color=' ace(x=10, y=6)
+  ShannonOut = customtkinter.CTkLabel(cia, text=shannonIndex, width=40, height=28, fg_color=' ace'(x=10, y=6))
 
-  gdeOut = customtkinter.CTkLabel(cia, text=gde, width=40, height=28, fg_color=' ace(x=10, y=10)
+  gdeOut = customtkinter.CTkLabel(cia, text=gde, width=40, height=28, fg_color='ace'(x=10, y=10))
 
-  renyiOut = customtkinter.CTkLabel(cia, text=renyi, width=40, height=28, fg_color=' ace(x=10, y=14)
+  renyiOut = customtkinter.CTkLabel(cia, text=renyi, width=40, height=28, fg_color='ace'(x=10, y=14))
 
-  ngramOut = customtkinter.CTkLabel(cia, text=ngram, width=40, height=28, fg_color=' ace(x=10, y=18)
+  ngramOut = customtkinter.CTkLabel(cia, text=ngram, width=40, height=28, fg_color='ace'(x=10, y=18))
 
-  iocOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  iocOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color='ace'(x=10, y=20))
   
-  prob1Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  prob1Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color='ace'(x=10, y=20))
   
-  prob2Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  prob2Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color='ace'(x=10, y=20))
   
-  if(ciperNButton.click()):
+  if(cipherNButton.click()):
+    print('cipher button')
     #create another cipher text field and run test agian
     
 
