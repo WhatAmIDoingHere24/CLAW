@@ -11,9 +11,16 @@ def cia():
 
   def enterEvent():
     print('button pressed')
+
+  def enterNcipher():
+    #create another text prompt infintily
+    print("hello world")
   
   Enterbutton = customtkinter.CTkButton(cia, text='See Stats',command=enterEvent ,width=140, height=28)
   Enterbutton.place(x=10, y=10)
+
+  cipherNButton = customtkinter.CTkButton(cia, text='enter another cipher',command=enterNcipher ,width=140, height=28)
+  cipherNButton.place(x=10, y=10)
   
   ShannonOut = customtkinter.CTkLabel(cia, text=shannonIndex, width=40, height=28, fg_color=' ace(x=10, y=6)
 
@@ -25,11 +32,18 @@ def cia():
 
   iocOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
   
-  probOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  prob1Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  
+  prob2Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  
+  if(ciperNButton.click()):
+    #create another cipher text field and run test agian
+    
+
 
 
 """
-Cipher index (a summation of a bunch of indicators for pattern recong. / repition / identiiers for crypto)
+Cipher index (a summation of a bunch of indicators for pattern recong. / repition / identiers for crypto)
   -shannon index
   -bigram / trigram indecies
   -index of coincidence
@@ -108,9 +122,7 @@ H = ((SN;R;i=n))
 """
 
 #index of coinicidence
-
 ioc = 0
-
 """
 this takes 2 or more encryptions of the same type and compares them for similiarties 
 
@@ -123,11 +135,13 @@ int i = 0 #a single point in the dataset
 
 """
 
-probOut = 0
+prob1Out = 0
+prob2Out = 0
 """
-This will compare two diffrent encryptions and give you an estimate to how similar they are
-, just fior seeing how close two encryptions are together
+prob1 = Takes two diffrent ciphers and outputs the probabillity that they are the same cipher
 
+//////////
 
-
+prob2 = Takes the outputs of other equations for known ciphers and matches it agianst the
+user input cipher to return a probillity oif what cipher it could be 
 """
