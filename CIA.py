@@ -1,7 +1,6 @@
 from functools import partial
 from crypto import  encodeBase64, decodeBase64, encodeBase32, decodeBase32
 import customtkinter
-import customtkinter
 
 
 def cia():
