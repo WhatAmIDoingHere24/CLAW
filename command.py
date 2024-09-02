@@ -37,10 +37,6 @@ def command(commandName, toolList, index, colums):
             encodeBase64()
         case "decodeBase64":
             decodeBase64()
-        case "bash":
-            print("this is bash")
-        case "md5":
-            print("this is md5")
         case "windowScripts":
             print("this is windows script manager")
             scriptManager()
