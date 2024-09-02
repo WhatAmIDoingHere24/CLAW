@@ -22,19 +22,19 @@ def cia():
   cipherNButton = customtkinter.CTkButton(cia, text='enter another cipher',command=enterNcipher ,width=140, height=28)
   cipherNButton.place(x=10, y=10)
   
-  ShannonOut = customtkinter.CTkLabel(cia, text=shannonIndex, width=40, height=28, fg_color=' ace(x=10, y=6)
+  ShannonOut = customtkinter.CTkLabel(cia, text=shannonIndex, width=40, height=28)
 
-  gdeOut = customtkinter.CTkLabel(cia, text=gde, width=40, height=28, fg_color=' ace(x=10, y=10)
+  gdeOut = customtkinter.CTkLabel(cia, text=gde, width=40, height=28)
 
-  renyiOut = customtkinter.CTkLabel(cia, text=renyi, width=40, height=28, fg_color=' ace(x=10, y=14)
+  renyiOut = customtkinter.CTkLabel(cia, text=renyi, width=40, height=28)
 
-  ngramOut = customtkinter.CTkLabel(cia, text=ngram, width=40, height=28, fg_color=' ace(x=10, y=18)
+  ngramOut = customtkinter.CTkLabel(cia, text=ngram, width=40, height=28)
 
-  iocOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  iocOut = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28)
   
-  prob1Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  prob1Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28)
   
-  prob2Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28, fg_color=' ace(x=10, y=20)
+  prob2Out = customtkinter.CTkLabel(cia, text=ioc, width=40, height=28)
   
   if(ciperNButton.click()):
     #create another cipher text field and run test agian
