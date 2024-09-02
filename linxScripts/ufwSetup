@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if ! [ $(id -u) = 0 ]; then
+    echo "run this in root"
+exit 1
+fi
+
+echo script begins...
+sudo status ufw
+sudo apt-get install ufw
+sudo apt upgrade ufw
+sudo systemctl enable ufw --now
+sudo ufw enable
+sudo ufw logging on
+sudo ufw deny 20,21,22,23,25,53,67,68,69,80,110,143,161,162,179,194,443,465,514,515,543,544,587,636,993,995,1080,1433,1434,3306,3389,5432,5900,6379,6660,6661,6662,6663,6664,6881,6882,6883,6884,8080,8443,9000,9090,9200,9300,9999,10000,11211,27017,27018,27019,28017,5000,5001,5800,5901,6379,7000,7777,8081,8082,8444,8888,9001,9091,9100,9201,9301,9998,10001
