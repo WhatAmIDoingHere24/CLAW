@@ -3,6 +3,7 @@ from crypto import  encodeBase64, decodeBase64, encodeBase32, decodeBase32
 
 def cia():
     print("hello world")
+    
 
 """
 Cipher index (a summation of a bunch of indicators for pattern recong. / repition / identiiers for crypto)

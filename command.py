@@ -10,7 +10,7 @@ titleList = ["Encryption / Decrption", "Window Scripts", "Linux Scripts", "CTF T
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Cipher Index Analysis", "Cipher Recognition"," Code Red", "Shift Cipher"]
 winScriptToolList = ["windowScripts"]
 linScriptToolList = ["linuxScripts"]
-ctfToolList = ["CodeRed","WAIT","MetaDataAnalisys"]
+ctfToolList = ["codeRed","osint","metaDataGrabber","www"]
 
 toolList = [cryptoToolList, winScriptToolList, linScriptToolList,ctfToolList]
 
