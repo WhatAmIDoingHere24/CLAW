@@ -69,7 +69,6 @@ for i in range(len(toolList)):
     for j in range(len(toolList[i])):
         #Creates a function with the argument included (you cant pass an argument into a button command without this)
         newCommand = partial(command,toolList[i][j])
-        newCommand = partial(command,toolList[i][j])
         #Creates button with new name and command
 
         button_name = toolList[i][j]
@@ -106,7 +105,7 @@ for i in range(len(titleList)):
 
     titleText = titleList[i]
     titleName= titleList[i]
-    newCommand = partial(titleCardCommand, titleList[i], toolButtons, i, titleCards)
+    newCommand = partial(titleCardCommand, toolButtons, i, titleCards)
 
     for n in range(len(titleText)):
         if titleText[n] == " ":
