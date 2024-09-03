@@ -1,5 +1,5 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
-from windowScriptManager import scriptManager
+from scriptRunner import deleteUsers, addUsers
 import customtkinter
 from CIA import cia
 #from CipherID import torchTest
@@ -7,7 +7,7 @@ from CodeRed import CDRD
 
 #List of tools to be assinged to buttons
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Cipher Index Analysis", "Cipher Recognition","Shift Cipher"]
-winScriptToolList = ["windowScripts"]
+winScriptToolList = ["deleteUsers", "addUsers"]
 linScriptToolList = ["linuxScripts"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 
@@ -24,9 +24,10 @@ def command(commandName):
             encodeBase64()
         case "decodeBase64":
             decodeBase64()
-        case "windowScripts":
-            print("this is windows script manager")
-            scriptManager()
+        case "deleteUsers":
+            deleteUsers()
+        case "addUsers":
+            addUsers()
         case "encodeBase32":
             encodeBase32()
         case "decodeBase32":
@@ -55,14 +56,6 @@ def packButtons(buttonList, index, titleList):
                 buttonList[i][n].pack_forget()
 
 
-def titleCardCommand(commandName, toolList, index, titleList):
-    match commandName:
-        case "Encryption / Decrption":
-            packButtons(toolList, index, titleList)
-        case "Window Scripts":
-            packButtons(toolList, index, titleList)
-        case "Linux Scripts":
-            packButtons(toolList, index, titleList)
-        case "CTF Tools":
-            packButtons(toolList, index, titleList)       
+def titleCardCommand(toolList, index, titleList):
+    packButtons(toolList, index, titleList)       
 

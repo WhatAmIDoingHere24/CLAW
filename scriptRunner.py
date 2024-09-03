@@ -47,8 +47,6 @@ def deleteUsers():
     dus.mainloop()
 
 def addUsers():
-    def test():
-        print("test")
     customtkinter.set_appearance_mode("System")
     customtkinter.set_default_color_theme("blue")
 
