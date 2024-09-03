@@ -86,3 +86,24 @@ def addUsers():
     ausEntry.pack(anchor= "sw", fill= customtkinter.BOTH, expand= True, side= customtkinter.LEFT)
     aus.bind('<Return>', handleUserEntry)
     aus.mainloop()
+
+
+def userManagerInterface():
+    customtkinter.set_appearance_mode("System")
+    customtkinter.set_default_color_theme("blue")
+
+    umi = customtkinter.CTk()
+    umi.title("addUsers")
+    umi.geometry('300x300')
+    umi.resizable(False, False)
+
+    allUsersFrame = customtkinter.CTkScrollableFrame(umi, width= 200, fg_color= "transparent", border_width= 1, border_color= "light grey", corner_radius= 0)
+    entry = customtkinter.CTkEntry(umi, fg_color= "light grey", placeholder_text= "Enter users here", 
+                                   placeholder_text_color= "dark grey", border_width= 0, corner_radius= 0)
+    
+    allUsersFrame.pack(anchor= "ne", fill= customtkinter.Y, expand= True)
+    entry.pack(anchor= "sw", fill= customtkinter.X)
+
+
+    umi.mainloop()
+
