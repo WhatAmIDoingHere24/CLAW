@@ -13,9 +13,9 @@ The following code is brought to you by the cybears of tvhs
 #Sets default apperence to your systems default, and sets color theme to blue
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
-
 #Intiilizing the window
 claw = customtkinter.CTk()
+
 claw_size = [600, 500]
 claw.geometry((str(claw_size[0]) + "x" + str(claw_size[1])))
 claw.resizable(False, False)
@@ -36,14 +36,14 @@ for i in range(3):
     colum_name = "buttonColum" + str(i)
     buttonColums.append(exec("%s = None" % (colum_name)))
     buttonColums[i] = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
-                                border_width= 0, corner_radius= 0)
+                                            border_width= 0, corner_radius= 0)
     
 titleColum = []
 for i in range(4):
     colum_name = "titleColum" + str(i)
     titleColum.append(exec("%s = None" % (colum_name)))
     titleColum[i] = customtkinter.CTkFrame(title_bar_frame, height= 90, width= ((claw_size[0] / 4) -10), 
-                                             fg_color= "transparent", border_width= 0, corner_radius= 0)
+                                           fg_color= "transparent", border_width= 0, corner_radius= 0)
 
 
 #Adds the title_bar and all 3 colum widgets onto the screen
@@ -51,6 +51,7 @@ for i in range(4):
 title_bar_frame.pack(anchor= "nw", fill= customtkinter.X)
 rectLabel.pack(anchor= "nw", padx= 10, pady= 5, fill= customtkinter.X)
 columFrame.pack(anchor= "nw", fill = customtkinter.BOTH, expand= True, side= customtkinter.TOP)
+
 for colum in buttonColums:
     colum.pack(anchor= "nw", fill= customtkinter.Y, side = customtkinter.LEFT, expand= True)
 
@@ -89,8 +90,8 @@ for i in range(len(toolList)):
 
 
         toolButtons[i].append(exec("%s = None" % (button_name)))
-        toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, height= 80, 
-                                                width= ((claw_size[0] / 3) - 30),fg_color="blue", command=newCommand)
+        toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("white", "dark grey"), height= 80, 
+                                                width= ((claw_size[0] / 3) - 30), fg_color= ("slate grey", "dark slate grey" ) , command=newCommand)
 
         if(counter % 2 == 0) and (counter > 0):
             counter = 0
@@ -117,7 +118,7 @@ for i in range(len(titleList)):
                 titleName = titleName[:j] + "_" + titleName[j+1:]
 
     titleCards.append(exec("%s = None" % (titleName)))
-    titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, height= 60, width=((claw_size[0] / 4) - 50), 
+    titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, text_color= ("white", "grey10"), height= 60, width=((claw_size[0] / 4) - 50), 
                                             fg_color="goldenrod", hover= False, command=newCommand)
     titleCards[i].pack_propagate(False)
     titleCards[i].pack(padx = 20, pady = 10)

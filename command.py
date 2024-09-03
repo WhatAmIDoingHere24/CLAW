@@ -44,7 +44,7 @@ def command(commandName):
 def packButtons(buttonList, index, titleList):
     for i in range(len(titleList)):
         if i == index:
-            titleList[i].configure(fg_color=  "grey")
+            titleList[i].configure(fg_color=  "DarkGoldenrod4")
         else:
             titleList[i].configure(fg_color=  "goldenrod")
     for i in range(len(buttonList)):
