@@ -2,9 +2,10 @@ from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
 from scriptRunner import deleteUsers, addUsers
 import customtkinter
 from CodeRed import CDRD
+from ciphy import homeDir
 
 #List of tools to be assinged to buttons
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
 winScriptToolList = ["deleteUsers", "addUsers"]
 linScriptToolList = ["linuxScripts"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
@@ -32,6 +33,8 @@ def command(commandName):
             decodeBase32()
         case "CodeRed":
             CDRD()
+        case "Ciphey":
+            homeDir()
         
     
 def packButtons(buttonList, index, titleList):
