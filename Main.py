@@ -27,7 +27,7 @@ claw.title("CLAW")
 title_bar_frame = customtkinter.CTkScrollableFrame(claw, height= 90, fg_color= "transparent",corner_radius= 0, border_width= 0)
 title_bar_frame._scrollbar.configure(height=0)
 
-rectLabel = customtkinter.CTkLabel(claw, text= "", fg_color= "light grey", corner_radius= 10, height= 2)
+rectLabel = customtkinter.CTkLabel(claw, text= "", fg_color= ("light grey", "grey20"), corner_radius= 10, height= 2)
 #Ceates the 3 buttonColums that the different buttons are put into
 columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0)
 
@@ -118,7 +118,7 @@ for i in range(len(titleList)):
 
     titleCards.append(exec("%s = None" % (titleName)))
     titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, height= 60, width=((claw_size[0] / 4) - 50), 
-                                            fg_color="dark grey", hover= False, command=newCommand)
+                                            fg_color="goldenrod", hover= False, command=newCommand)
     titleCards[i].pack_propagate(False)
     titleCards[i].pack(padx = 20, pady = 10)
     if i == 0:
