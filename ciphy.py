@@ -1,5 +1,10 @@
 import sys
+import os
+import subprocess
+
+
+x = "python3 -m pip install ciphey --upgrade"
 
 
 def homeDir():
-    sys.stdout("ls /")
+    subprocess.run(["powershell", x], shell=True)
