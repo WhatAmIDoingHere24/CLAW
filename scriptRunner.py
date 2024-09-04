@@ -1,7 +1,8 @@
 import subprocess
 import os
 import customtkinter
-
+import time
+import threading
 present_working_directory = os.getcwd()
 
 # maybe add OS check so peolple dont run windows scripts on ubnutu and vice versa
@@ -23,7 +24,7 @@ def deleteUsers():
         newPath = os.path.realpath("winScripts")
         os.chdir(newPath)
         scriptPath = os.path.realpath("deleteUsers.ps1")
-        subprocess.run(["powershell.exe", "Start-Process powershell.exe -Verb RunAs -ArgumentList \"-ExecutionPolicy Unrestricted -File " + scriptPath + " -Users " + users + "\""])
+        subprocess.run(["powershell.exe", "Start-Process powershell.exe -Verb RunAs -WindowStyle Hidden -ArgumentList \"-ExecutionPolicy Unrestricted -File " + scriptPath + " -Users " + users + "\""])
         os.chdir(present_working_directory)
 
     def handleUserEntry(event):
@@ -64,7 +65,7 @@ def addUsers():
         newPath = os.path.realpath("winScripts")
         os.chdir(newPath)
         scriptPath = os.path.realpath("addUsers.ps1")
-        subprocess.run(["powershell.exe", "Start-Process powershell.exe -Verb RunAs -ArgumentList \"-ExecutionPolicy Unrestricted -File " + scriptPath + " -Users " + users + "\""])
+        subprocess.run(["powershell.exe", "Start-Process powershell.exe -Verb RunAs -WindowStyle Hidden -ArgumentList \"-ExecutionPolicy Unrestricted -File " + scriptPath + " -Users " + users + "\""])
         os.chdir(present_working_directory)
 
     def handleUserEntry(event):
@@ -106,4 +107,24 @@ def userManagerInterface():
 
 
     umi.mainloop()
+import fileinput
+def getUsers():
+    newPath = os.path.realpath("winScripts")
+    os.chdir(newPath)
+    scriptPath = os.path.realpath("getAllUsers.ps1")
+    newText = present_working_directory + "\\users.txt"
+    subprocess.run(["powershell.exe", "Start-Process powershell.exe -WindowStyle Hidden -ArgumentList \"-ExecutionPolicy Unrestricted -File " + scriptPath + " -Path " + newText + "\""])
+    os.chdir(present_working_directory)
+    while not os.path.exists("users.txt"):
+        time.sleep(1)
+    time.sleep(2)
+    userFile = open("users.txt")
+    stuff = userFile.readlines()
+    for i in range(len(stuff)):
+        print(stuff[i])
+    
+
+def startGetUsersThread():
+    gettingUsers = threading.Thread(target= getUsers)
+    gettingUsers.start()
 

@@ -1,6 +1,7 @@
 import customtkinter
 from command import command, titleCardCommand, toolList, titleList
 from functools import partial
+import os
 
 """
 welcome to CLAW!
@@ -11,7 +12,7 @@ The following code is brought to you by the cybears of tvhs
 
 
 #Sets default apperence to your systems default, and sets color theme to blue
-customtkinter.set_appearance_mode("System")
+customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("blue")
 #Intiilizing the window
 claw = customtkinter.CTk()
@@ -129,4 +130,11 @@ for i in range(len(titleList)):
     else:
         counter = counter + 1
 #runs the window until it is closed by user
+def reset():
+    if os.path.exists("users.txt"):  
+        os.remove("users.txt")
+    claw.destroy()
+
+
+claw.protocol("WM_DELETE_WINDOW", reset)
 claw.mainloop()
