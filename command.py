@@ -1,11 +1,11 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
 from scriptRunner import deleteUsers, addUsers, startGetUsersThread
 import customtkinter
-#from CipherID import torchTest
 from CodeRed import CDRD
+from ciphy import homeDir
 
 #List of tools to be assinged to buttons
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Cipher Index Analysis", "Cipher Recognition","Shift Cipher"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
 winScriptToolList = ["deleteUsers", "addUsers", "getUsers"]
 linScriptToolList = ["linuxScripts"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
@@ -31,13 +31,10 @@ def command(commandName):
             encodeBase32()
         case "decodeBase32":
             decodeBase32()
-        case "Cipher Index Analysis":
-            pass
-        case "Cipher Recognition":
-            #torchTest()
-            pass
         case "CodeRed":
             CDRD()
+        case "Ciphey":
+            homeDir()
         case "getUsers":
             startGetUsersThread()
         
