@@ -1,13 +1,12 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
-from scriptRunner import deleteUsers, addUsers
+from scriptRunner import deleteUsers, addUsers, startGetUsersThread
 import customtkinter
-from CIA import cia
 #from CipherID import torchTest
 from CodeRed import CDRD
 
 #List of tools to be assinged to buttons
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Cipher Index Analysis", "Cipher Recognition","Shift Cipher"]
-winScriptToolList = ["deleteUsers", "addUsers"]
+winScriptToolList = ["deleteUsers", "addUsers", "getUsers"]
 linScriptToolList = ["linuxScripts"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 
@@ -33,12 +32,14 @@ def command(commandName):
         case "decodeBase32":
             decodeBase32()
         case "Cipher Index Analysis":
-            cia()
+            pass
         case "Cipher Recognition":
             #torchTest()
             pass
         case "CodeRed":
             CDRD()
+        case "getUsers":
+            startGetUsersThread()
         
     
 def packButtons(buttonList, index, titleList):
