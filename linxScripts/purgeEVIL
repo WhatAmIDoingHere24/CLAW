@@ -6,7 +6,7 @@ exit 1
 fi
 
 
-echo "removing all HACKING tools"
+echo "removing all the EEEVVVVVIIIILLLLLL"
 
 sudo apt purge nmap
 sudo apt purge wireshark-graphical
