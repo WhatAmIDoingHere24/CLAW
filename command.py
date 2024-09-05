@@ -2,7 +2,7 @@ from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
 from scriptRunner import deleteUsers, addUsers, startGetUsersThread
 import customtkinter
 from CodeRed import CDRD
-from ciphy import homeDir
+#from ciphy import homeDir
 
 #List of tools to be assinged to buttons
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
