@@ -88,6 +88,13 @@ def addUsers():
     aus.bind('<Return>', handleUserEntry)
     aus.mainloop()
 
+def setDefaultRules():
+    #Script go here
+    newPath = os.path.realpath("winScripts")
+    os.chdir(newPath)
+    scriptPath = os.path.realpath("setDefaultRules.ps1")
+    pass
+    
 
 def userManagerInterface():
     customtkinter.set_appearance_mode("System")

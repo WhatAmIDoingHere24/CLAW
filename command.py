@@ -1,12 +1,12 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
-from scriptRunner import deleteUsers, addUsers, startGetUsersThread
+from scriptRunner import deleteUsers, addUsers, startGetUsersThread, setDefaultRules
 import customtkinter
 from CodeRed import CDRD
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
-winScriptToolList = ["deleteUsers", "addUsers", "getUsers"]
+winScriptToolList = ["deleteUsers", "addUsers", "getUsers","setDefaultRules"]
 linScriptToolList = ["linuxScripts"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 
@@ -37,7 +37,8 @@ def command(commandName):
             homeDir()
         case "getUsers":
             startGetUsersThread()
-        
+        case "setDefaultRules":
+            setDefaultRules()      
     
 def packButtons(buttonList, index, titleList):
     for i in range(len(titleList)):
