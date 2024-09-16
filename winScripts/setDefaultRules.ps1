@@ -105,13 +105,17 @@ reg ADD HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v Show
 reg ADD HKLM\SYSTEM\CurrentControlSet\Control\CrashControl /v CrashDumpEnabled /t REG_DWORD /d 0 /f
 #Disable autoruns
 reg ADD HKCU\SYSTEM\CurrentControlSet\Services\CDROM /v AutoRun /t REG_DWORD /d 1 /f
+#Disable Ctrl/Alt/Delete
+reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCAD /t REG_DWORD /d 0 /f
+#Disable FTP Service
+Stop-Service "ftpsvc"
 
-Write-Host "Completed Default Rules"
+Write-Host "Completed DefaultPolicy Rules"
 
 #Simple Firewall Rules
 
 #Turns on Firewall
-netsh advfirewall set allprofiles state 
+netsh advfirewall set allprofiles state on
 #Turns these rules off
 netsh advfirewall firewall set rule name="Remote Assistance (DCOM-In)" new enable=no 
 netsh advfirewall firewall set rule name="Remote Assistance (PNRP-In)" new enable=no 
@@ -121,3 +125,6 @@ netsh advfirewall firewall set rule name="Remote Assistance (SSDP UDP-In)" new e
 netsh advfirewall firewall set rule name="Remote Assistance (TCP-In)" new enable=no 
 netsh advfirewall firewall set rule name="Telnet Server" new enable=no 
 netsh advfirewall firewall set rule name="netcat" new enable=no
+
+
+Write-Host "Competed Firewall Rules"
