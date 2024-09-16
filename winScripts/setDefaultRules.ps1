@@ -53,7 +53,7 @@ reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v undock
 #Enable CTRL+ALT+DEL
 reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCAD /t REG_DWORD /d 0 /f
 #Max password age
-reg ADD HKLM\SYSTEM\CurrentControlSet\services\Netlogon\Parameters /v MaximumPasswordAge /t REG_DWORD /d 15 /f
+reg ADD HKLM\SYSTEM\CurrentControlSet\services\Netlogon\Parameters /v MaximumPasswordAge /t REG_DWORD /d 90 /f
 #Disable machine account password changes
 reg ADD HKLM\SYSTEM\CurrentControlSet\services\Netlogon\Parameters /v DisablePasswordChange /t REG_DWORD /d 1 /f
 #Require strong session key
@@ -107,3 +107,17 @@ reg ADD HKLM\SYSTEM\CurrentControlSet\Control\CrashControl /v CrashDumpEnabled /
 reg ADD HKCU\SYSTEM\CurrentControlSet\Services\CDROM /v AutoRun /t REG_DWORD /d 1 /f
 
 Write-Host "Completed Default Rules"
+
+#Simple Firewall Rules
+
+#Turns on Firewall
+netsh advfirewall set allprofiles state 
+#Turns these rules off
+netsh advfirewall firewall set rule name="Remote Assistance (DCOM-In)" new enable=no 
+netsh advfirewall firewall set rule name="Remote Assistance (PNRP-In)" new enable=no 
+netsh advfirewall firewall set rule name="Remote Assistance (RA Server TCP-In)" new enable=no 
+netsh advfirewall firewall set rule name="Remote Assistance (SSDP TCP-In)" new enable=no 
+netsh advfirewall firewall set rule name="Remote Assistance (SSDP UDP-In)" new enable=no 
+netsh advfirewall firewall set rule name="Remote Assistance (TCP-In)" new enable=no 
+netsh advfirewall firewall set rule name="Telnet Server" new enable=no 
+netsh advfirewall firewall set rule name="netcat" new enable=no
