@@ -1,7 +1,7 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
 from scriptRunner import deleteUsers, addUsers, startGetUsersThread, setDefaultRules
 import customtkinter
-from CodeRed import CDRD
+from codeRed import CDRD
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
