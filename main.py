@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import customtkinter
 from command import command, titleCardCommand, toolList, titleList
 from functools import partial
