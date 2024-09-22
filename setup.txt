@@ -2,5 +2,11 @@ Install Python 3.11+
 
 1. Open Terminal
 2. Navigate to the CLAW directory
-3. > pip install customtkinter
-4. > python ./Main.py
+
+If on Windows:
+    3. > pip install customtkinter
+    4. > python main.py
+
+If on Linux:
+    3. > `apt install python3-tk`, `dnf install python3-tkinter`, or `pacman -S tk`
+    4. > ./main.py
