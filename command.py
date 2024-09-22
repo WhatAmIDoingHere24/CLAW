@@ -1,5 +1,5 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
-from scriptRunner import deleteUsers, addUsers, startGetUsersThread, setDefaultRules
+from scriptRunner import deleteUsers, addUsers, startGetUsersThread, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
 #from ciphy import homeDir
@@ -7,14 +7,14 @@ from codeRed import CDRD
 #List of tools to be assinged to buttons
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
 winScriptToolList = ["deleteUsers", "addUsers", "getUsers","setDefaultRules"]
-linScriptToolList = ["linuxScripts"]
+linScriptToolList = ["linuxScripts", "Lucas User Script"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 
 #Must match index of titleList and toolList if you want said title to show said tool buttons
 titleList = ["Encryption / Decrption", "Window Scripts", "Linux Scripts", "CTF Tools"]
 toolList = [cryptoToolList, winScriptToolList, linScriptToolList,ctfToolList]
 
-        
+
 
 def command(commandName):
     match commandName:
@@ -38,8 +38,11 @@ def command(commandName):
         case "getUsers":
             startGetUsersThread()
         case "setDefaultRules":
-            setDefaultRules()      
-    
+            setDefaultRules()
+        case "Lucas User Script":
+            runLinuxUserScript()
+
+
 def packButtons(buttonList, index, titleList):
     for i in range(len(titleList)):
         if i == index:
@@ -56,5 +59,4 @@ def packButtons(buttonList, index, titleList):
 
 
 def titleCardCommand(toolList, index, titleList):
-    packButtons(toolList, index, titleList)       
-
+    packButtons(toolList, index, titleList)
