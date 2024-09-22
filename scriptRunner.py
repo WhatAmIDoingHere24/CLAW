@@ -3,6 +3,7 @@ import os
 import customtkinter
 import time
 import threading
+import shutil
 present_working_directory = os.getcwd()
 
 # maybe add OS check so peolple dont run windows scripts on ubnutu and vice versa
@@ -15,8 +16,8 @@ def deleteUsers():
     dus.title("deleteUsers")
     dus.geometry('300x50')
     dus.resizable(False, False)
-    entry = customtkinter.CTkEntry(dus, placeholder_text= "Enter Users", placeholder_text_color= "grey", width=150, 
-                                   height=50, text_color="black", fg_color= "light grey", border_width= 0, 
+    entry = customtkinter.CTkEntry(dus, placeholder_text= "Enter Users", placeholder_text_color= "grey", width=150,
+                                   height=50, text_color="black", fg_color= "light grey", border_width= 0,
                                    corner_radius= 5)
 
 
@@ -56,11 +57,11 @@ def addUsers():
     aus.geometry('300x300')
     aus.resizable(False, False)
 
-    ausEntry = customtkinter.CTkEntry(aus, placeholder_text= "Enter Users", placeholder_text_color= "grey", width=150, 
-                                   height=50, text_color="black", fg_color= "light grey", border_width= 0, 
+    ausEntry = customtkinter.CTkEntry(aus, placeholder_text= "Enter Users", placeholder_text_color= "grey", width=150,
+                                   height=50, text_color="black", fg_color= "light grey", border_width= 0,
                                    corner_radius= 5)
     ausUserLabel = customtkinter.CTkTextbox(aus, text_color="black", border_width= 1, corner_radius= 5, border_color= "light grey")
-    
+
     def addU(users):
         newPath = os.path.realpath("winScripts")
         os.chdir(newPath)
@@ -94,7 +95,7 @@ def setDefaultRules():
     os.chdir(newPath)
     scriptPath = os.path.realpath("setDefaultRules.ps1")
     pass
-    
+
 
 def userManagerInterface():
     customtkinter.set_appearance_mode("System")
@@ -106,9 +107,9 @@ def userManagerInterface():
     umi.resizable(False, False)
 
     allUsersFrame = customtkinter.CTkScrollableFrame(umi, width= 200, fg_color= "transparent", border_width= 1, border_color= "light grey", corner_radius= 0)
-    entry = customtkinter.CTkEntry(umi, fg_color= "light grey", placeholder_text= "Enter users here", 
+    entry = customtkinter.CTkEntry(umi, fg_color= "light grey", placeholder_text= "Enter users here",
                                    placeholder_text_color= "dark grey", border_width= 0, corner_radius= 0)
-    
+
     allUsersFrame.pack(anchor= "ne", fill= customtkinter.Y, expand= True)
     entry.pack(anchor= "sw", fill= customtkinter.X)
 
@@ -129,9 +130,16 @@ def getUsers():
     stuff = userFile.readlines()
     for i in range(len(stuff)):
         print(stuff[i])
-    
+
 
 def startGetUsersThread():
     gettingUsers = threading.Thread(target= getUsers)
     gettingUsers.start()
 
+def runLinuxUserScript():
+    # I want this to open a new terminal window to run the script in, but that wouldn't be distro-agnostic
+    # it also wont let me cd to the script directory to run it, so the gum executable has to be temporarily copied over for the script to run
+    shutil.copy2("linxScripts/lucasuserscript/gum", "./")
+    os.system("bash ./linxScripts/lucasuserscript/userscript.sh")
+    os.remove("./gum")
+    print("script has exited")
