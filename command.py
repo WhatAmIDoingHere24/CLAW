@@ -8,7 +8,7 @@ from cipheymodule import cipheyDecryptManager
 #List of tools to be assinged to buttons
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
 winScriptToolList = ["deleteUsers", "addUsers", "getUsers","setDefaultRules"]
-linScriptToolList = ["linuxScripts", "Lucas User Script"]
+linScriptToolList = ["Lucas User Script"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 
 #Must match index of titleList and toolList if you want said title to show said tool buttons
