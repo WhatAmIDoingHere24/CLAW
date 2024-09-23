@@ -14,7 +14,7 @@ The following code is brought to you by the cybears of tvhs
 
 
 #Sets default apperence to your systems default, and sets color theme to blue
-customtkinter.set_appearance_mode("dark")
+customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
 #Intiilizing the window
 claw = customtkinter.CTk()
@@ -38,14 +38,14 @@ buttonColums = []
 for i in range(3):
     colum_name = "buttonColum" + str(i)
     buttonColums.append(exec("%s = None" % (colum_name)))
-    buttonColums[i] = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent", 
+    buttonColums[i] = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent",
                                             border_width= 0, corner_radius= 0)
-    
+
 titleColum = []
 for i in range(4):
     colum_name = "titleColum" + str(i)
     titleColum.append(exec("%s = None" % (colum_name)))
-    titleColum[i] = customtkinter.CTkFrame(title_bar_frame, height= 90, width= ((claw_size[0] / 4) -10), 
+    titleColum[i] = customtkinter.CTkFrame(title_bar_frame, height= 90, width= ((claw_size[0] / 4) -10),
                                            fg_color= "transparent", border_width= 0, corner_radius= 0)
 
 
@@ -61,7 +61,7 @@ for colum in buttonColums:
 for colum in titleColum:
     colum.pack(anchor= "nw", pady= 5, fill= customtkinter.Y, side = customtkinter.LEFT, expand= True)
 
-#Holds all the tool Buttons from toolList 
+#Holds all the tool Buttons from toolList
 toolButtons = []
 titleCards = []
 invalidChar = [" ", ".", "(", ")", "/"]
@@ -93,7 +93,7 @@ for i in range(len(toolList)):
 
 
         toolButtons[i].append(exec("%s = None" % (button_name)))
-        toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("white", "dark grey"), height= 80, 
+        toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("white", "dark grey"), height= 80,
                                                 width= ((claw_size[0] / 3) - 30), fg_color= ("slate grey", "dark slate grey" ) , command=newCommand)
 
         if(counter % 2 == 0) and (counter > 0):
@@ -121,7 +121,7 @@ for i in range(len(titleList)):
                 titleName = titleName[:j] + "_" + titleName[j+1:]
 
     titleCards.append(exec("%s = None" % (titleName)))
-    titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, text_color= ("white", "grey10"), height= 60, width=((claw_size[0] / 4) - 50), 
+    titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, text_color= ("white", "grey10"), height= 60, width=((claw_size[0] / 4) - 50),
                                             fg_color="goldenrod", hover= False, command=newCommand)
     titleCards[i].pack_propagate(False)
     titleCards[i].pack(padx = 20, pady = 10)
@@ -133,7 +133,7 @@ for i in range(len(titleList)):
         counter = counter + 1
 #runs the window until it is closed by user
 def reset():
-    if os.path.exists("users.txt"):  
+    if os.path.exists("users.txt"):
         os.remove("users.txt")
     claw.destroy()
 
