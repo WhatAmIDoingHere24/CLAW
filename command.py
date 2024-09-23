@@ -2,6 +2,7 @@ from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
 from scriptRunner import deleteUsers, addUsers, startGetUsersThread, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
+from cipheymodule import cipheyDecryptManager
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
@@ -34,7 +35,7 @@ def command(commandName):
         case "CodeRed":
             CDRD()
         case "Ciphey":
-            homeDir()
+            cipheyDecryptManager()
         case "getUsers":
             startGetUsersThread()
         case "setDefaultRules":
