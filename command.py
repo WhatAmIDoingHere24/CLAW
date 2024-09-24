@@ -1,5 +1,5 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
-from scriptRunner import userManagerInterface, runPurgeEvilScript, runSecureUFWScript, startGetUsersThread, setDefaultRules, runLinuxUserScript
+from scriptRunner import userManagerInterface, runPurgeEvilScript, runSecureUFWScript, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
 from cipheymodule import cipheyDecryptManager
@@ -31,7 +31,7 @@ def command(commandName):
         case "CodeRed":
             CDRD()
         case "Ciphey":
-            #homeDir()
+            cipheyDecryptManager()
             pass
         case "userManagerInterface":
             userManagerInterface()
