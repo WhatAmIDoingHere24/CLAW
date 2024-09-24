@@ -1,4 +1,4 @@
-from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
+from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32, openDCodeLink
 from scriptRunner import userManagerInterface, runPurgeEvilScript, runSecureUFWScript, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
@@ -6,7 +6,7 @@ from cipheymodule import cipheyDecryptManager
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Ciphey"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Ciphey", "Open dcode.fr\n(requires internet)"]
 winScriptToolList = ["userManagerInterface","setDefaultRules"]
 linScriptToolList = ["Lucas User Script", "Purge Unwanted Apps", "Secure UFW"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
@@ -43,6 +43,8 @@ def command(commandName):
             runPurgeEvilScript()
         case "Secure UFW":
             runSecureUFWScript()
+        case "Open dcode.fr\n(requires internet)":
+            openDCodeLink()
 
 
 def packButtons(buttonList, index, titleList):

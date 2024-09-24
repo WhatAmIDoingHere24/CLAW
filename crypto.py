@@ -1,5 +1,6 @@
 import customtkinter
 import base64
+import webbrowser
 from functools import partial
 
 def encodeBase64():
@@ -218,3 +219,7 @@ def decodeBase32():
     #toolWindow.bind('<Return>', lambda event: convert2Ascii(event, entry.get()))
     toolWindow.bind('<Return>', handleEntryEnter)
     toolWindow.mainloop()
+
+def openDCodeLink():
+    print("opening dcode.fr in browser")
+    webbrowser.open("https://dcode.fr/en", new=0, autoraise=True)
