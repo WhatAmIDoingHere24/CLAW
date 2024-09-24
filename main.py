@@ -91,8 +91,9 @@ for i in range(len(toolList)):
             button_text_list.append(button_text[n])
         button_text = "".join(button_text_list)
 
-
-        toolButtons[i].append(exec("%s = None" % (button_name)))
+        # I dont know what this line did, but it was giving me an error, so i changed it.
+        #toolButtons[i].append(exec("%s = None" % (button_name)))
+        toolButtons[i].append(button_name)
         toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("white", "dark grey"), height= 80,
                                                 width= ((claw_size[0] / 3) - 30), fg_color= ("slate grey", "dark slate grey" ) , command=newCommand)
 
