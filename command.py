@@ -6,7 +6,7 @@ from cipheymodule import cipheyDecryptManager
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Ciphey"]
 winScriptToolList = ["deleteUsers", "addUsers", "getUsers","setDefaultRules"]
 linScriptToolList = ["Lucas User Script", "Purge Unwanted Apps", "Secure UFW"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
