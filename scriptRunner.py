@@ -3,6 +3,7 @@ import os
 import customtkinter
 import threading
 from functools import partial
+import shutil
 present_working_directory = os.getcwd()
 
 # maybe add OS check so peolple dont run windows scripts on ubnutu and vice versa
@@ -203,4 +204,23 @@ def getUsers():
 
     return(users)
 
-    
+def setDefaultRules():
+    #Script go here
+    newPath = os.path.realpath("winScripts")
+    os.chdir(newPath)
+    scriptPath = os.path.realpath("setDefaultRules.ps1")
+    pass
+
+def runLinuxUserScript():
+    # I want this to open a new terminal window to run the script in, but that wouldn't be distro-agnostic
+    # it also wont let me cd to the script directory to run it, so the gum executable has to be temporarily copied over for the script to run
+    shutil.copy2("linxScripts/lucasuserscript/gum", "./")
+    os.system("bash ./linxScripts/lucasuserscript/userscript.sh")
+    os.remove("./gum")
+    print("script has exited")
+
+def runPurgeEvilScript():
+    os.system("sudo bash ./linxScripts/purgeEVIL.sh")
+
+def runSecureUFWScript():
+    os.system("sudo bash ./linxScripts/ufwSetup.sh")
