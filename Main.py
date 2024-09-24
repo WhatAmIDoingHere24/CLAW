@@ -12,7 +12,7 @@ The following code is brought to you by the cybears of tvhs
 
 
 #Sets default apperence to your systems default, and sets color theme to blue
-customtkinter.set_appearance_mode("dark")
+customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
 #Intiilizing the window
 claw = customtkinter.CTk()
@@ -91,7 +91,7 @@ for i in range(len(toolList)):
 
 
         toolButtons[i].append(exec("%s = None" % (button_name)))
-        toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("white", "dark grey"), height= 80, 
+        toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("black", "dark grey"), height= 80, 
                                                 width= ((claw_size[0] / 3) - 30), fg_color= ("slate grey", "dark slate grey" ) , command=newCommand)
 
         if(counter % 2 == 0) and (counter > 0):
@@ -119,7 +119,7 @@ for i in range(len(titleList)):
                 titleName = titleName[:j] + "_" + titleName[j+1:]
 
     titleCards.append(exec("%s = None" % (titleName)))
-    titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, text_color= ("white", "grey10"), height= 60, width=((claw_size[0] / 4) - 50), 
+    titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, text_color= ("black", "grey10"), height= 60, width=((claw_size[0] / 4) - 50), 
                                             fg_color="goldenrod", hover= False, command=newCommand)
     titleCards[i].pack_propagate(False)
     titleCards[i].pack(padx = 20, pady = 10)
