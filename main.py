@@ -86,7 +86,7 @@ for i in range(len(toolList)):
         button_text_list = []
 
         for n in range(len(button_text)):
-            if button_text[n].isupper() and (n != 0 and (button_text[n+1] != "." and button_text[n-1] != ".") and (button_text[n+1] != ")" and button_text[n-1] != "(")):
+            if n == len(button_text):
                 button_text_list.append("\n")
             button_text_list.append(button_text[n])
         button_text = "".join(button_text_list)

@@ -146,3 +146,6 @@ def runLinuxUserScript():
 
 def runPurgeEvilScript():
     os.system("sudo bash ./linxScripts/purgeEVIL.sh")
+
+def runSecureUFWScript():
+    os.system("sudo bash ./linxScripts/ufwSetup.sh")

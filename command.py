@@ -1,5 +1,5 @@
 from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
-from scriptRunner import deleteUsers, addUsers, runPurgeEvilScript, startGetUsersThread, setDefaultRules, runLinuxUserScript
+from scriptRunner import deleteUsers, addUsers, runPurgeEvilScript, runSecureUFWScript, startGetUsersThread, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
 from cipheymodule import cipheyDecryptManager
@@ -8,7 +8,7 @@ from cipheymodule import cipheyDecryptManager
 #List of tools to be assinged to buttons
 cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Shift Cipher","Ciphey"]
 winScriptToolList = ["deleteUsers", "addUsers", "getUsers","setDefaultRules"]
-linScriptToolList = ["Lucas User Script", "Purge Unwanted Apps"]
+linScriptToolList = ["Lucas User Script", "Purge Unwanted Apps", "Secure UFW"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 
 #Must match index of titleList and toolList if you want said title to show said tool buttons
@@ -44,6 +44,8 @@ def command(commandName):
             runLinuxUserScript()
         case "Purge Unwanted Apps":
             runPurgeEvilScript()
+        case "Secure UFW":
+            runSecureUFWScript()
 
 
 def packButtons(buttonList, index, titleList):
