@@ -143,3 +143,6 @@ def runLinuxUserScript():
     os.system("bash ./linxScripts/lucasuserscript/userscript.sh")
     os.remove("./gum")
     print("script has exited")
+
+def runPurgeEvilScript():
+    os.system("sudo bash ./linxScripts/purgeEVIL.sh")

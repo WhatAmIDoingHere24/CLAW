@@ -14,3 +14,5 @@ sudo apt purge wireshark-cli
 sudo apt purge ettercap-graphical
 sudo apt purge ettercap-cli
 sudo apt purge netcat
+
+echo "script has finished purging, bye bye"
