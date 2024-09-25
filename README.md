@@ -15,4 +15,4 @@ To Compile:
 - The `ciphey` module does not work with pyinstaller, since it depends on `pywhat`
 
 On Linux:
-  `pyinstaller main.py --clean -F -n CLAW`
+  `pyinstaller main.py --clean -F -n CLAW --add-binary "linxScripts/lucasuserscript/gum:./linxScripts/lucasuserscript"`
