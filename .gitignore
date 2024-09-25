@@ -1,3 +1,6 @@
 __pycache__/
 *.py[cod]
 users.txt
+build/
+dist/
+CLAW.spec
