@@ -1,3 +1,4 @@
+"""
 from time import strftime
 from ciphey import decrypt
 import ciphey
@@ -56,3 +57,4 @@ def cipheyDecryptManager():
     toolWindow.bind('<Return>', handleEntryEnter)
     entry.focus_force()
     toolWindow.mainloop()
+"""

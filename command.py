@@ -2,11 +2,13 @@ from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32, openD
 from scriptRunner import userManagerInterface, runPurgeEvilScript, runSecureUFWScript, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
-from cipheymodule import cipheyDecryptManager
+#from cipheymodule import cipheyDecryptManager
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Ciphey", "Open dcode.fr\n(requires internet)"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32",
+    #"Ciphey", ( i broke up the array to comment out this line, yes i am a good programmer)
+    "Open dcode.fr\n(requires internet)"]
 winScriptToolList = ["userManagerInterface","setDefaultRules"]
 linScriptToolList = ["Lucas User Script", "Purge Unwanted Apps", "Secure UFW"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
@@ -30,9 +32,8 @@ def command(commandName):
             decodeBase32()
         case "CodeRed":
             CDRD()
-        case "Ciphey":
-            cipheyDecryptManager()
-            pass
+        #case "Ciphey":
+        #    cipheyDecryptManager()
         case "userManagerInterface":
             userManagerInterface()
         case "setDefaultRules":
