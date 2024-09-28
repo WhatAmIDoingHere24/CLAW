@@ -1,11 +1,13 @@
-from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32, openDCodeLink
+from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32
 from scriptRunner import userManagerInterface, runPurgeEvilScript, runSecureUFWScript, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
+import platform
+#from cipheymodule import cipheyDecryptManager
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
-cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32", "Ciphey", "Open dcode.fr\n(requires internet)"]
+cryptoToolList = ["encodeBase64","decodeBase64", "encodeBase32", "decodeBase32","Ciphey"]
 winScriptToolList = ["userManagerInterface","setDefaultRules"]
 linScriptToolList = ["Lucas User Script", "Purge Unwanted Apps", "Secure UFW"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
@@ -13,6 +15,26 @@ ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 #Must match index of titleList and toolList if you want said title to show said tool buttons
 titleList = ["Encryption / Decrption", "Window Scripts", "Linux Scripts", "CTF Tools"]
 toolList = [cryptoToolList, winScriptToolList, linScriptToolList,ctfToolList]
+
+
+def popup():
+    popup = customtkinter.CTk()
+    popup.geometry("200x100")
+    popup.resizable(False, False)
+    popup.title("Wrong OS")
+
+    def handleClose():
+        popup.withdraw()
+        popup.quit()
+        #exit()
+
+    textLabel = customtkinter.CTkLabel(popup, text = ("Only run on " + platform.system() + " os"))
+    okay_Button = customtkinter.CTkButton(popup, text= "Okay", command= handleClose)
+    textLabel.pack(pady = 10)
+    okay_Button.pack(pady = 10)
+
+    popup.protocol("WM_DELETE_WINDOW", handleClose)
+    popup.mainloop()
 
 
 
@@ -30,19 +52,33 @@ def command(commandName):
         case "CodeRed":
             CDRD()
         case "Ciphey":
+            #homeDir()
             pass
         case "userManagerInterface":
-            userManagerInterface()
+            if platform.system() == "Windows":
+                userManagerInterface()
+            else:
+                popup()
         case "setDefaultRules":
-            setDefaultRules()
+            if platform.system() == "Windows":
+                setDefaultRules()
+            else:
+                popup()
         case "Lucas User Script":
-            runLinuxUserScript()
+            if platform.system() == "Linux":
+                runLinuxUserScript()
+            else:
+                popup()
         case "Purge Unwanted Apps":
-            runPurgeEvilScript()
+            if platform.system() == "Linux":
+                runPurgeEvilScript()
+            else:
+                popup()
         case "Secure UFW":
-            runSecureUFWScript()
-        case "Open dcode.fr\n(requires internet)":
-            openDCodeLink()
+            if platform.system() == "Linux":
+                runSecureUFWScript()
+            else:
+                popup()
 
 
 def packButtons(buttonList, index, titleList):

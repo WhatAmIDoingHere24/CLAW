@@ -27,12 +27,12 @@ claw.title("CLAW")
 
 
 #Creates label (1 for now)
-title_bar_frame = customtkinter.CTkScrollableFrame(claw, height= 90, fg_color= "transparent",corner_radius= 0, border_width= 0)
+title_bar_frame = customtkinter.CTkScrollableFrame(claw, height= 90, fg_color= "transparent",corner_radius= 0, border_width= 0, scrollbar_button_color= ("gray87", "grey18"))
 title_bar_frame._scrollbar.configure(height=0)
 
 rectLabel = customtkinter.CTkLabel(claw, text= "", fg_color= ("light grey", "grey20"), corner_radius= 10, height= 2)
 #Ceates the 3 buttonColums that the different buttons are put into
-columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0)
+columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0, scrollbar_button_color= ("gray87", "grey18")) 
 
 buttonColums = []
 for i in range(3):
@@ -91,9 +91,8 @@ for i in range(len(toolList)):
             button_text_list.append(button_text[n])
         button_text = "".join(button_text_list)
 
-        # I dont know what this line did, but it was giving me an error, so i changed it.
-        #toolButtons[i].append(exec("%s = None" % (button_name)))
-        toolButtons[i].append(button_name)
+
+        toolButtons[i].append(exec("%s = None" % (button_name)))
         toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("white", "dark grey"), height= 80,
                                                 width= ((claw_size[0] / 3) - 30), fg_color= ("slate grey", "dark slate grey" ) , command=newCommand)
 
@@ -133,5 +132,11 @@ for i in range(len(titleList)):
     else:
         counter = counter + 1
 
+def handleClose():
+        claw.withdraw()
+        claw.quit()
+        exit()
 
+
+claw.protocol("WM_DELETE_WINDOW", handleClose)
 claw.mainloop()
