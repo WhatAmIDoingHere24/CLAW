@@ -14,9 +14,10 @@ def userManagerInterface():
     customtkinter.set_default_color_theme("blue")
 
     umi = customtkinter.CTk()
-    umi.title("addUsers")
+    umi.title("UMI")
     umi.geometry('500x500')
     umi.resizable(False, False)
+    umi.iconbitmap("wave.ico")
 
     currentUsers = []
     currentUsers.extend(getUsers())
@@ -114,8 +115,8 @@ def userManagerInterface():
             formatedUsers += "."
             deleteUThreading(formatedUsers)
     
-    deleteUserButton = customtkinter.CTkButton(umi, text= "delete users", text_color= ("black", "dark grey"), 
-                                            fg_color= ("slate grey", "dark slate grey" ) , command= deleteSelectedUsers)
+    deleteUserButton = customtkinter.CTkButton(umi, text= "delete users", text_color= ("black", "white"), 
+                                            fg_color= ("red", "red" ) , command= deleteSelectedUsers)
     deleteUserButton.pack(anchor = "nw", side = customtkinter.LEFT, padx = 10, pady = 10)
     entry.pack(anchor= "sw", fill= customtkinter.X, side = customtkinter.BOTTOM)
     allUsersFrame.pack(anchor= "nw", fill= customtkinter.BOTH, expand = True)

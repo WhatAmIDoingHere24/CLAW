@@ -2,7 +2,6 @@ from crypto import encodeBase64, decodeBase64, encodeBase32, decodeBase32, openD
 from scriptRunner import userManagerInterface, runPurgeEvilScript, runSecureUFWScript, setDefaultRules, runLinuxUserScript
 import customtkinter
 from codeRed import CDRD
-from cipheymodule import cipheyDecryptManager
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
@@ -31,7 +30,6 @@ def command(commandName):
         case "CodeRed":
             CDRD()
         case "Ciphey":
-            cipheyDecryptManager()
             pass
         case "userManagerInterface":
             userManagerInterface()
