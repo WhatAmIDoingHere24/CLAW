@@ -3,7 +3,7 @@ from scriptRunner import userManagerInterface, runPurgeEvilScript, runSecureUFWS
 import customtkinter
 from codeRed import CDRD
 import platform
-#from cipheymodule import cipheyDecryptManager
+from cipheymodule import cipheyDecryptManager
 #from ciphy import homeDir
 
 #List of tools to be assinged to buttons
@@ -52,7 +52,7 @@ def command(commandName):
         case "CodeRed":
             CDRD()
         case "Ciphey":
-            #homeDir()
+            cipheyDecryptManager()
             pass
         case "userManagerInterface":
             if platform.system() == "Windows":
