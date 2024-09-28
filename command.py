@@ -19,18 +19,18 @@ toolList = [cryptoToolList, winScriptToolList, linScriptToolList,ctfToolList]
 
 def popup():
     popup = customtkinter.CTk()
-    popup.geometry("200x100")
+    popup.geometry("250x100")
     popup.resizable(False, False)
-    popup.title("Wrong OS")
+    popup.title("Error: Wrong OS")
 
     def handleClose():
         popup.withdraw()
         popup.quit()
         #exit()
 
-    textLabel = customtkinter.CTkLabel(popup, text = ("Only run on " + platform.system() + " os"))
+    textLabel = customtkinter.CTkLabel(popup, text = ("This feature doesn't work on " + platform.system() + "."))
     okay_Button = customtkinter.CTkButton(popup, text= "Okay", command= handleClose)
-    textLabel.pack(pady = 10)
+    textLabel.pack(pady = 10, expand=True)
     okay_Button.pack(pady = 10)
 
     popup.protocol("WM_DELETE_WINDOW", handleClose)
