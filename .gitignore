@@ -1,4 +1,6 @@
 __pycache__/
+*.pyc
+*.pyo
 *.py[cod]
 users.txt
 build/
