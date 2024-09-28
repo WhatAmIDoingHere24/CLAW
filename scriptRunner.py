@@ -342,12 +342,14 @@ def getGroups():
         groups.append(news[0:news.index(".")])
         news = news[(news.index(".")+1):]
     
-    removeGroups = ["__vmware__", "Device", "Distributed", "Event", "HyperV", "IIS_IUSRS", "Performance", "System", "Remote"]
-    for group in removeGroups:
-        while group in groups:
-            del groups[groups.index(group)]
+    allowedGroups = ["Users", "Administrators", "Guests"]
+    agroups = []
+    for group in groups:
+        for ag in allowedGroups:
+            if group == ag:
+                agroups.append(group)
 
-    return(groups)
+    return(agroups)
 
 def find_users_in_group(group):
     p = subprocess.check_output(["powershell.exe", "Get-LocalGroupMember -Group \"" + group + "\""])
