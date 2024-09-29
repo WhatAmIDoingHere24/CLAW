@@ -13,7 +13,7 @@ linScriptToolList = ["Lucas User Script", "Purge Unwanted Apps", "Secure UFW"]
 ctfToolList = ["codeRed", "osint", "metaDataGrabber", "www"]
 
 #Must match index of titleList and toolList if you want said title to show said tool buttons
-titleList = ["Encryption / Decrption", "Window Scripts", "Linux Scripts", "CTF Tools"]
+titleList = ["Crypto Tools", "Window Scripts", "Linux Scripts", "CTF Tools"]
 toolList = [cryptoToolList, winScriptToolList, linScriptToolList,ctfToolList]
 
 
