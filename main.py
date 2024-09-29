@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
+from tkinter import Tk
+import tkinter
 import customtkinter
+from customtkinter.windows.ctk_input_dialog import CTkButton
+from customtkinter.windows.widgets.core_widget_classes.ctk_base_class import Any
 from command import command, titleCardCommand, toolList, titleList
 from functools import partial
 import os
@@ -21,45 +25,75 @@ claw = customtkinter.CTk()
 
 claw_size = [600, 500]
 claw.geometry((str(claw_size[0]) + "x" + str(claw_size[1])))
-claw.resizable(False, False)
-claw.title("CLAW")
+claw.resizable(True, True)
+claw.title("CLAW: The program where Jett makes a commit every 7 weeks")
 
 
 
-#Creates label (1 for now)
-title_bar_frame = customtkinter.CTkScrollableFrame(claw, height= 90, fg_color= "transparent",corner_radius= 0, border_width= 0, scrollbar_button_color= ("gray87", "grey18"))
-title_bar_frame._scrollbar.configure(height=0)
+# Create Frame for the Tabs
+tabsFrame = customtkinter.CTkFrame(
+    claw,
+    height= 90,
+    fg_color= "transparent",
+    corner_radius= 0,
+    border_width= 0,
+    #scrollbar_button_color= ("gray87", "grey18")
+)
+#title_bar_frame._scrollbar.configure(width=0)
 
-rectLabel = customtkinter.CTkLabel(claw, text= "", fg_color= ("light grey", "grey20"), corner_radius= 10, height= 2)
-#Ceates the 3 buttonColums that the different buttons are put into
-columFrame= customtkinter.CTkScrollableFrame(claw, fg_color= "transparent", border_width= 0, corner_radius= 0, scrollbar_button_color= ("gray87", "grey18")) 
+# Create a spacer between tabs and content
+rectLabel = customtkinter.CTkLabel(
+    claw,
+    text= "",
+    fg_color= ("light grey", "grey20"),
+    corner_radius= 10,
+    height= 2,
+    #scrollbar_button_color= ("gray87", "grey18")
+)
 
+# Creates frame for content buttons
+contentFrame= customtkinter.CTkFrame(
+    claw,
+    fg_color= "transparent",
+    border_width= 0,
+    corner_radius= 0,
+    #scrollbar_button_color= ("gray87", "grey18")
+)
+
+# Make all columns to put inside of contentFrame
 buttonColums = []
 for i in range(3):
     colum_name = "buttonColum" + str(i)
     buttonColums.append(exec("%s = None" % (colum_name)))
-    buttonColums[i] = customtkinter.CTkFrame(columFrame, width= ((claw_size[0] / 3) -10), fg_color= "transparent",
-                                            border_width= 0, corner_radius= 0)
+    buttonColums[i] = customtkinter.CTkFrame(
+        contentFrame,
+        width= ((claw_size[0] / 3) -10),
+        fg_color= "transparent",
+        border_width= 0,
+        corner_radius= 0
+    )
 
-titleColum = []
-for i in range(4):
-    colum_name = "titleColum" + str(i)
-    titleColum.append(exec("%s = None" % (colum_name)))
-    titleColum[i] = customtkinter.CTkFrame(title_bar_frame, height= 90, width= ((claw_size[0] / 4) -10),
-                                           fg_color= "transparent", border_width= 0, corner_radius= 0)
+# Adds all 3 frames to the screen
+tabsFrame.pack(
+    anchor= "nw",
+    fill= customtkinter.X
+)
+rectLabel.pack(
+    anchor= "nw",
+    padx= 10,
+    pady= 5,
+    fill= customtkinter.X
+)
+contentFrame.pack(
+    anchor= "nw",
+    fill = customtkinter.BOTH,
+    expand= True,
+    side= customtkinter.TOP
+)
 
-
-#Adds the title_bar and all 3 colum widgets onto the screen
-#title_bar.pack(anchor= "nw", padx= 5, pady = 5)
-title_bar_frame.pack(anchor= "nw", fill= customtkinter.X)
-rectLabel.pack(anchor= "nw", padx= 10, pady= 5, fill= customtkinter.X)
-columFrame.pack(anchor= "nw", fill = customtkinter.BOTH, expand= True, side= customtkinter.TOP)
-
+# Display each column frame inside of contentFrame
 for colum in buttonColums:
     colum.pack(anchor= "nw", fill= customtkinter.Y, side = customtkinter.LEFT, expand= True)
-
-for colum in titleColum:
-    colum.pack(anchor= "nw", pady= 5, fill= customtkinter.Y, side = customtkinter.LEFT, expand= True)
 
 #Holds all the tool Buttons from toolList
 toolButtons = []
@@ -93,8 +127,14 @@ for i in range(len(toolList)):
 
 
         toolButtons[i].append(exec("%s = None" % (button_name)))
-        toolButtons[i][j] = customtkinter.CTkButton(master= buttonColums[counter], text=button_text, text_color= ("white", "dark grey"), height= 80,
-                                                width= ((claw_size[0] / 3) - 30), fg_color= ("slate grey", "dark slate grey" ) , command=newCommand)
+        toolButtons[i][j] = customtkinter.CTkButton(
+            master= buttonColums[counter],
+            text=button_text,
+            text_color= ("white", "dark grey"),
+            height= 80,
+            width= ((claw_size[0] / 3) - 20),
+            fg_color= ("slate grey", "dark slate grey" ),
+            command=newCommand)
 
         if(counter % 2 == 0) and (counter > 0):
             counter = 0
@@ -104,7 +144,6 @@ for i in range(len(toolList)):
 
 
 #Iterates through TitleList to create a radio button for each title with a function from command
-counter = 0
 for i in range(len(titleList)):
 
     titleText = titleList[i]
@@ -120,17 +159,29 @@ for i in range(len(titleList)):
             if titleName[j] == charcter:
                 titleName = titleName[:j] + "_" + titleName[j+1:]
 
-    titleCards.append(exec("%s = None" % (titleName)))
-    titleCards[i] = customtkinter.CTkButton(titleColum[counter], text= titleText, text_color= ("white", "grey10"), height= 60, width=((claw_size[0] / 4) - 50),
-                                            fg_color="goldenrod", hover= False, command=newCommand)
-    titleCards[i].pack_propagate(False)
-    titleCards[i].pack(padx = 20, pady = 10)
+    #titleCards.append(exec("%s = None" % (titleName)))
+
+    newButton: CTkButton = customtkinter.CTkButton(
+        tabsFrame,
+        text= titleText,
+        text_color= ("white", "grey10"),
+        height= 60,
+        width=((claw_size[0] / 4)-40),
+        fg_color="goldenrod",
+        hover= False,
+        command=newCommand
+    )
+
+    # this is using grid, not pack, cus its easier
+    #newButton.pack_propagate(False)
+    #newButton.pack(padx = 20, pady = 10)
+    newButton.grid(padx=20,pady = 10, row=0,column=i, sticky = "N")
+
+    titleCards.append(newButton)
+
+    # to auto select the first tab
     if i == 0:
         newCommand()
-    if(counter % 3 == 0) and (counter > 0):
-        counter = 0
-    else:
-        counter = counter + 1
 
 def handleClose():
         claw.withdraw()
