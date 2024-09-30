@@ -187,8 +187,8 @@ def userManagerInterface():
     showUserFrame = customtkinter.CTkFrame(umi, width= 250, height= 250, fg_color= "transparent", border_width= 0, corner_radius= 0)
     showUserFrame.propagate(False)
     allUsersFrame = customtkinter.CTkScrollableFrame(showUserFrame, width= 200, fg_color= "transparent", border_width= 1, border_color= "light grey", corner_radius= 0)
-    entry = customtkinter.CTkEntry(showUserFrame, fg_color= "light grey", placeholder_text= "Enter users here", 
-                                placeholder_text_color= "dark grey", border_width= 0, corner_radius= 0)
+    entry = customtkinter.CTkEntry(showUserFrame, fg_color= "dark grey", placeholder_text= "Enter new users here", 
+                                placeholder_text_color= "steelBlue1", border_width= 0, corner_radius= 0)
 
     deleteUserButton = customtkinter.CTkButton(umi, text= "delete users", text_color= ("black", "white"), 
                                             fg_color= ("slate grey", "red" ) , command= deleteSelectedUsers)

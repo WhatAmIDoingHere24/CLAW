@@ -26,7 +26,7 @@ claw = customtkinter.CTk()
 claw_size = [600, 500]
 claw.geometry((str(claw_size[0]) + "x" + str(claw_size[1])))
 claw.resizable(True, True)
-claw.title("CLAW: The program where Jett makes a commit every 7 weeks")
+claw.title("CLAW")
 
 
 
