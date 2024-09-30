@@ -18,6 +18,7 @@ def userManagerInterface():
     umi.title("UMI")
     umi.geometry('500x500')
     umi.resizable(False, False)
+    umi.iconbitmap("wave.ico")
 
     
     selectedUsers = []
@@ -53,7 +54,7 @@ def userManagerInterface():
         def __init__(self, user_name, users_groups, master):
             self.user_name = user_name
             self.users_groups = users_groups
-            self.button = customtkinter.CTkCheckBox(master = master, text= self.user_name, text_color= ("black", "grey10"), command= selected)
+            self.button = customtkinter.CTkCheckBox(master = master, text= self.user_name, text_color= ("black", "SteelBlue2"), command= selected)
         
 
         def find_groups(self):
@@ -189,8 +190,8 @@ def userManagerInterface():
     entry = customtkinter.CTkEntry(showUserFrame, fg_color= "light grey", placeholder_text= "Enter users here", 
                                 placeholder_text_color= "dark grey", border_width= 0, corner_radius= 0)
 
-    deleteUserButton = customtkinter.CTkButton(umi, text= "delete users", text_color= ("black", "dark grey"), 
-                                            fg_color= ("slate grey", "dark slate grey" ) , command= deleteSelectedUsers)
+    deleteUserButton = customtkinter.CTkButton(umi, text= "delete users", text_color= ("black", "white"), 
+                                            fg_color= ("slate grey", "red" ) , command= deleteSelectedUsers)
     
     
 
