@@ -188,15 +188,15 @@ def userManagerInterface():
     showUserFrame.propagate(False)
     allUsersFrame = customtkinter.CTkScrollableFrame(showUserFrame, width= 200, fg_color= "transparent", border_width= 1, border_color= "light grey", corner_radius= 0)
     entry = customtkinter.CTkEntry(showUserFrame, fg_color= "dark grey", placeholder_text= "Enter new users here", 
-                                placeholder_text_color= "steelBlue1", border_width= 0, corner_radius= 0)
+                                placeholder_text_color= "steelBlue1", border_width= 0, corner_radius= 0,text_color="steelBlue1")
 
     deleteUserButton = customtkinter.CTkButton(umi, text= "delete users", text_color= ("black", "white"), 
                                             fg_color= ("slate grey", "red" ) , command= deleteSelectedUsers)
     
     
 
-    loadingScreenFrame = customtkinter.CTkFrame(umi, fg_color= "lightSkyBlue1", border_width= 0, corner_radius= 0)
-    loadingText = customtkinter.CTkLabel(loadingScreenFrame, width = 250, height= 50, fg_color= "transparent", text= "Loading UMI")
+    loadingScreenFrame = customtkinter.CTkFrame(umi, fg_color= "dark grey", border_width= 0, corner_radius= 0)
+    loadingText = customtkinter.CTkLabel(loadingScreenFrame, width = 250, height= 50, fg_color= "transparent", text= "Loading UMI",text_color="Blue")
     loadingBar = customtkinter.CTkProgressBar(loadingScreenFrame, width = 250)
     loadingBar.set(0)
     loadingScreenFrame.pack(anchor = "nw", fill = customtkinter.BOTH, expand = True)
