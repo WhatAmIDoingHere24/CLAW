@@ -1,8 +1,4 @@
 TO DO:
-Decryption/Encryption:
-  Base64
-  Base32
-  BASH
 Image Proccesing
 Making it not run like a fish out of water (Run Optimally)
 Automated Scripts 
@@ -15,24 +11,4 @@ Windows
 Linux
 script builder
 
-Libraries:
-#import pillow
-#import subprocess
-#import threading
-#import socket
-#holy carp this is a lot of libraries lets hope threading helps at all
-#import pytorch
-#import time
-#import math
-#import matplotlib
-#import scapy
-#import PyCrypto
-#import BeautifulSoup
-#import Paramiko
-#import nmap
-#import scikitlearn
-#import socket
-#import ploty
-#import pandas
-#import Pygal
-#import numpy
+
